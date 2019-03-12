@@ -24,6 +24,7 @@ function depends_dosbox() {
 
 function sources_dosbox() {
     gitPullOrClone "$md_build" https://github.com/aqualung99/dosbox-0.74-ES
+    applyPatch "$md_data/01-fully-bindable-joystick.diff"
 }
 
 function build_dosbox() {
