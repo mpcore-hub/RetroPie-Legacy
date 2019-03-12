@@ -165,6 +165,7 @@ function install_emulationstation() {
         'THEMES.md'
         'resources'
     )
+    md_ret_files+=(resources)
 }
 
 function init_input_emulationstation() {
