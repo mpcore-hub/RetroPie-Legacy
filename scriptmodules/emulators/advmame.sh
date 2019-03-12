@@ -24,7 +24,7 @@ function depends_advmame() {
 }
 
 function sources_advmame() {
-    downloadAndExtract "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz" "$md_build" 1
+    downloadAndExtract "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz" "$md_build" --strip-components 1
 }
 
 function build_advmame() {
