@@ -125,7 +125,7 @@ function depends_emulationstation() {
     local depends=(
         libfreeimage-dev libfreetype6-dev libeigen3-dev
         libcurl4-openssl-dev libasound2-dev cmake libsm-dev
-        libvlc-dev libvlccore-dev vlc libfreeimage-dev libcec-dev libp8-platform-dev
+        libvlc-dev libvlccore-dev vlc
     )
 
     isPlatform "x11" && depends+=(gnome-terminal)
@@ -142,12 +142,7 @@ function sources_emulationstation() {
 
 function build_emulationstation() {
     rpSwap on 1000
-    if isPlatform "mali-drm-gles2"; then
-	sed -i "s/GLES\/gl.h/SDL_opengles.h/" "$md_build/es-core/src/platform.h"
-    	cmake . -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/ -DGLES=ON -DOPENGLES_gl_LIBRARY=/usr/local/lib/`gcc -dumpmachine`/mali/libGLESv1_CM.so
-    else
-	cmake . -DGLSystem="OpenGL ES" -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/
-    fi
+    cmake . -DGLSystem="OpenGL ES" -DFREETYPE_INCLUDE_DIRS=/usr/include/freetype2/
     make clean
     make -j2
     rpSwap off
