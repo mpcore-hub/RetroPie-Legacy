@@ -218,8 +218,15 @@ def process_event(event):
 
     return False
 
+js_fds = []
+tty_fd = []
+
 signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
+
+# daemonize when signal handlers are registered
+if os.fork():
+    os._exit(0)
 
 js_button_codes = {}
 button_codes = []
@@ -246,10 +253,8 @@ except IOError:
     print 'Unable to open /dev/tty'
     sys.exit(1)
 
-js_fds = []
 rescan_time = time.time()
-prev_parent = int(os.getenv("__joy2key_ppid", os.getppid()))
-while prev_parent == os.getppid():
+while True:
     do_sleep = True
     if not js_fds:
         js_devs, js_fds = open_devices()
@@ -289,5 +294,3 @@ while prev_parent == os.getppid():
 
     if do_sleep:
         time.sleep(0.01)
-
-signal_handler(0, 0)
