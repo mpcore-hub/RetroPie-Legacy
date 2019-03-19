@@ -189,6 +189,7 @@ function gui_esthemes() {
         'RetroHursty69 arcade1up_aspectratio54'
         'RetroHursty69 supersweet_aspectratio54'
         'RetroHursty69 heychromey_aspectratio54'
+        'RetroHursty69 vertical_limit_verticaltheme'
         'Saracade scv720'
         'chicueloarcade Chicuelo'
         'SuperMagicom nostalgic'
