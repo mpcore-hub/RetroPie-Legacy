@@ -1,5 +1,5 @@
- RetroPie-Setup
-================
+MPCORE2 - RetroPie-Setup
+========================
 
 
 ## General Usage
