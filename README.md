@@ -1,10 +1,9 @@
-================
  RetroPie-Setup
 ================
 
-###################
-## General Usage ##
-###################
+
+## General Usage
+
 
 Shell script to setup Allwinner H2+/H3 SBC on Armbian/Debian with many emulators and games, using EmulationStation as the graphical front end. Based on the RetroPie Basic Script see on GitHub (RetroPie) or via website at https://retropie.org.uk
 
@@ -34,8 +33,8 @@ sudo ./retropie_setup.sh
 
 When you first run the script it may install some additional packages that are needed.
 
-##############
-# Basic Wiki #
-##############
+
+# Basic Wiki
+
 
 You can find useful information about several components or for several frequently asked questions in the [wiki](https://github.com/RetroPie/RetroPie-Setup/wiki) of the RetroPie Script. If you think that there is something missing, you are invited to add it to the wiki.
