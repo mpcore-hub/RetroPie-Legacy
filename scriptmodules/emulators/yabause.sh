@@ -16,7 +16,7 @@ rp_module_licence="https://github.com/devmiyax/yabause/blob/minimum_linux/yabaus
 rp_module_section="exp"
 
 function depends_yabause() {
-    local depends=(cmake libgles2-mesa-dev libsdl2-dev libboost-filesystem-dev libboost-system-dev libboost-locale-dev libboost-date-time-dev)
+    local depends=(libboost-filesystem-dev libboost-system-dev libboost-locale-dev libboost-date-time-dev)
     getDepends "${depends[@]}"
 }
 
