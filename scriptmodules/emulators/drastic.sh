@@ -17,7 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !armv6 !kms"
 
 function install_bin_drastic() {
-    downloadAndExtract "https://github.com/Retro-Arena/binaries/blob/master/odroid-xu4/drastic.tar.gz" "$md_inst" --strip-components 1
+    downloadAndExtract "https://github.com/Retro-Arena/binaries/blob/master/odroid-xu4/drastic.tar.gz" "$md_inst" 1
     patchVendorGraphics "$md_inst/drastic"
 }
 
