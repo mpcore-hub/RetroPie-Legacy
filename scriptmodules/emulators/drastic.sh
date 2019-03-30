@@ -17,8 +17,8 @@ rp_module_section="exp"
 rp_module_flags="!x86 !armv6 !kms"
 
 function install_bin_drastic() {
-#    downloadAndExtract "https://github.com/mpcore2/archiv/blob/master/drastic.tar.bz2" "$md_inst" --strip-components 1
-    downloadAndExtract "http://drastic-ds.com/drastic_rpi.tar.bz2" "$md_inst" --strip-components 1
+    downloadAndExtract "https://github.com/mpcore2/archiv/blob/master/drastic.tar" "$md_inst" --strip-components 1
+#    downloadAndExtract "http://drastic-ds.com/drastic_rpi.tar.bz2" "$md_inst" --strip-components 1
     patchVendorGraphics "$md_inst/drastic"
 }
 
