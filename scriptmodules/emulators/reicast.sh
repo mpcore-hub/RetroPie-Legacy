@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is only for Allwinner H2/H3
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -14,45 +14,36 @@ rp_module_desc="Dreamcast emulator Reicast"
 rp_module_help="ROM Extensions: .cdi .gdi\n\nCopy your Dreamcast roms to $romdir/dreamcast\n\nCopy the required BIOS files dc_boot.bin and dc_flash.bin to $biosdir/dc"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/reicast/reicast-emulator/master/LICENSE"
 rp_module_section="opt"
-rp_module_flags="!armv6"
 
 function depends_reicast() {
     local depends=(libsdl2-dev python-dev python-pip alsa-oss python-setuptools libevdev-dev libasound2-dev)
-    isPlatform "vero4k" && depends+=(vero3-userland-dev-osmc)
     getDepends "${depends[@]}"
     pip install evdev
 }
 
 function sources_reicast() {
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    #sed -i "s/CXXFLAGS += -fno-rtti -fpermissive -fno-operator-names/CXXFLAGS += -fno-rtti -fpermissive -fno-operator-names -D_GLIBCXX_USE_CXX11_ABI=0/g" shell/linux/Makefile
-    cp -v "$md_data/Makefile" "$md_build/shell/linux/"
+    gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
 }
 
 function build_reicast() {
     cd shell/linux
-    if isPlatform "mali"; then
-        make platform=odroid clean
-        make -j2 platform=odroid
-    else
-        make clean
-        make
-    fi
+        make USE_GLES=1 USE_SDL=1 platform=odroid clean
+        make USE_GLES=1 USE_SDL=1 platform=odroid
     md_ret_require="$md_build/shell/linux/reicast.elf"
 }
 
 function install_reicast() {
     cd shell/linux
-    if isPlatform "mali"; then
-        make -j2 platform=odroid PREFIX="$md_inst" install
-    else
-        make PREFIX="$md_inst" install
-    fi
+        make USE_GLES=1 USE_SDL=1 PREFIX="$md_inst" platform=odroid install
     md_ret_files=(
         'LICENSE'
         'README.md'
     )
 }
+
+#function install_bin_reicast() {
+#    downloadAndExtract "https://github.com/mpcore2/archiv/raw/master/emulators/reicast.tar.gz" "$md_inst" 1
+#}
 
 function configure_reicast() {
     # copy hotkey remapping start script
@@ -87,17 +78,8 @@ _EOF_
     rm -f "$romdir/dreamcast/systemManager.cdi"
 
     # add system
-    # possible audio backends: alsa, oss, omx
-    if isPlatform "rpi"; then
-        addEmulator 1 "${md_id}-audio-omx" "dreamcast" "CON:$md_inst/bin/reicast.sh omx %ROM%"
-        addEmulator 0 "${md_id}-audio-oss" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
-    elif isPlatform "vero4k"; then
-        addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
-    else
-        addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
-    fi
+    addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
     addSystem "dreamcast"
-
     addAutoConf reicast_input 1
 }
 
