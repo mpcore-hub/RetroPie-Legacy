@@ -33,7 +33,7 @@ function mapInput() {
         for ev_device in /dev/input/event*; do
             ev_device_num=${ev_device/\/dev\/input\/event/}
             if [[ -d "/sys/class/input/event${ev_device_num}/device/js${js_device_num}" ]]; then
-                file[$ev_device_num]=$(grep --exclude=*.bak -rl -m 1 "$configdir/dreamcast/mappings/" -e "= $(</sys/class/input/event${ev_device_num}/device/name)" | tail -n 1)
+                file[$ev_device_num]=$(grep --exclude=*.bak -rl -m 1 "$configdir/dreamcast/mappings/" -e "= $(</sys/class/input/event${ev_device_num}/device/name)")
                 if [[ -f "${file[$ev_device_num]}" ]]; then
                     #file[$ev_device_num]="${file[$ev_device_num]##*/}"
                     ev_devices[$ev_device_num]=$(</sys/class/input/event${ev_device_num}/device/name)
@@ -77,7 +77,7 @@ if [[ ! -f "$HOME/RetroPie/BIOS/dc/dc_boot.bin" ]]; then
     exit 1
 fi
 
-params=(-config config:homedir=$HOME -config x11:fullscreen=1)
+params=(-config config:homedir=$home -config x11:fullscreen=1)
 getAutoConf reicast_input && params+=($(mapInput))
 [[ -n "$AUDIO" ]] && params+=(-config audio:backend=$AUDIO -config audio:disable=0)
 [[ -n "$ROM" ]] && params+=(-config config:image="$ROM")
