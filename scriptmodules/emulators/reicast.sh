@@ -14,6 +14,7 @@ rp_module_desc="Dreamcast emulator Reicast"
 rp_module_help="ROM Extensions: .cdi .gdi\n\nCopy your Dreamcast roms to $romdir/dreamcast\n\nCopy the required BIOS files dc_boot.bin and dc_flash.bin to $biosdir/dc"
 rp_module_licence="GPL2 https://raw.githubusercontent.com/reicast/reicast-emulator/master/LICENSE"
 rp_module_section="opt"
+rp_module_flags="!armv6"
 
 function depends_reicast() {
     local depends=(libsdl2-dev python-dev python-pip alsa-oss python-setuptools libevdev-dev libasound2-dev)
@@ -22,56 +23,20 @@ function depends_reicast() {
 }
 
 function sources_reicast() {
-    if isPlatform "x11"; then
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    elif isPlatform "vero4k"; then
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    elif isPlatform "tinker"; then
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    elif isPlatform "mali"; then
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    elif isPlatform "H3-mali"; then
-        gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-    else
-        gitPullOrClone "$md_build" https://github.com/RetroPie/reicast-emulator.git retropie
-    fi
-    sed -i "s/CXXFLAGS += -fno-rtti -fpermissive -fno-operator-names/CXXFLAGS += -fno-rtti -fpermissive -fno-operator-names -D_GLIBCXX_USE_CXX11_ABI=0/g" shell/linux/Makefile
+    gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
+#    && applyPatch "$md_data/sun8i.patch"
 }
 
 function build_reicast() {
     cd shell/linux
-    if isPlatform "rpi"; then
-        make platform=rpi2 clean
-        make platform=rpi2
-    elif isPlatform "tinker"; then
-        make USE_GLES=1 USE_SDL=1 clean
-        make USE_GLES=1 USE_SDL=1
-    elif isPlatform "mali"; then
-        make USE_GLES=1 USE_SDL=1 clean
-        make USE_GLES=1 USE_SDL=1
-    elif isPlatform "H3-mali"; then
-        make USE_GLES=1 USE_SDL=1 clean
-        make USE_GLES=1 USE_SDL=1
-    else
-        make clean
-        make
-    fi
-    md_ret_require="$md_build/shell/linux/reicast.elf"
+        make platform=sun8i clean
+        make platform=sun8i
+        md_ret_require="$md_build/shell/linux/reicast.elf"
 }
 
 function install_reicast() {
     cd shell/linux
-    if isPlatform "rpi"; then
-        make platform=rpi2 PREFIX="$md_inst" install
-    elif isPlatform "tinker"; then
-        make USE_GLES=1 USE_SDL=1 PREFIX="$md_inst" install
-    elif isPlatform "mali"; then
-        make USE_GLES=1 USE_SDL=1 PREFIX="$md_inst" install
-    elif isPlatform "H3-mali"; then
-        make USE_GLES=1 USE_SDL=1 PREFIX="$md_inst" install
-    else
-        make PREFIX="$md_inst" install
-    fi
+        make PREFIX="$md_inst" platform=sun8i install
     md_ret_files=(
         'LICENSE'
         'README.md'
@@ -79,7 +44,7 @@ function install_reicast() {
 }
 
 #function install_bin_reicast() {
-#    downloadAndExtract "https://github.com/mpcore2/archiv/raw/master/emulators/reicast.tar.gz" "$md_inst" 1
+#    downloadAndExtract "$__gitbins_url/reicast.tar.gz" "$md_inst" 1
 #}
 
 function configure_reicast() {
@@ -115,9 +80,9 @@ _EOF_
     rm -f "$romdir/dreamcast/systemManager.cdi"
 
     # add system
-    addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
+    addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
     addSystem "dreamcast"
-    addAutoConf reicast_input 1
+    addAutoConf reicast_input 0
 }
 
 function input_reicast() {
