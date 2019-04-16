@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is only for sun8i (like Allwinner H2+/H3)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -21,7 +21,7 @@ function sources_lr-pokemini() {
 
 function build_lr-pokemini() {
     make clean
-    make
+    make platform=classic_armv7_a7 ARCH=arm
     md_ret_require="$md_build/pokemini_libretro.so"
 }
 
@@ -30,6 +30,7 @@ function install_lr-pokemini() {
         'pokemini_libretro.so'
     )
 }
+
 
 function configure_lr-pokemini() {
     mkRomDir "pokemini"
