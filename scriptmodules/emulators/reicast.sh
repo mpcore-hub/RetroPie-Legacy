@@ -24,7 +24,7 @@ function depends_reicast() {
 
 function sources_reicast() {
     gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-#    && applyPatch "$md_data/sun8i.patch"
+    applyPatch "$md_data/sun8i.patch"
 }
 
 function build_reicast() {
