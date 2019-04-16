@@ -18,7 +18,6 @@ rp_module_flags=""
 
 function sources_lr-mupen64plus-nx() {
 	gitPullOrClone "$md_build" https://github.com/libretro/mupen64plus-libretro-nx.git GLideN64
-	fi
 }
 
 function build_lr-mupen64plus-nx() {
