@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# Only for Allwinner H2+/H3 sun8i
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -22,7 +22,7 @@ function sources_lr-virtualjaguar() {
 
 function build_lr-virtualjaguar() {
     make clean
-    make
+    make platform=classic_armv7_a7 ARCH=arm
     md_ret_require="$md_build/virtualjaguar_libretro.so"
 }
 
