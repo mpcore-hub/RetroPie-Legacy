@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# Only for Allwinner H2+/H3 sun8i
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -20,12 +20,9 @@ function sources_lr-snes9x() {
 }
 
 function build_lr-snes9x() {
-    local params=()
-    isPlatform "arm" && params+=(platform="armv")
-
     cd libretro
-    make "${params[@]}" clean
-    make "${params[@]}"
+    make clean
+    make platform=classic_armv7_a7 ARCH=arm
     md_ret_require="$md_build/libretro/snes9x_libretro.so"
 }
 
