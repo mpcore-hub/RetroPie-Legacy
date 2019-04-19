@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# Only for Allwinner H2+/H3 sun8i
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -18,7 +18,6 @@ rp_module_section="opt"
 function depends_lr-parallel-n64() {
     local depends=()
     isPlatform "x11" && depends+=(libgl1-mesa-dev)
-    isPlatform "rpi" && depends+=(libraspberrypi-dev)
     getDepends "${depends[@]}"
 }
 
@@ -33,15 +32,7 @@ function sources_lr-parallel-n64() {
 function build_lr-parallel-n64() {
     rpSwap on 1000
     make clean
-    local params=()
-    if isPlatform "rpi" || isPlatform "odroid-c1"; then
-        params+=(platform="$__platform")
-    elif isPlatform "tinker" || isPlatform "H3-mali"; then
-        params+=(CPUFLAGS="-DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE")
-        params+=(GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm)
-        params+=(GL_LIB:=-lGLESv2)
-    fi
-    make -j2 "${params[@]}"
+    make -j2 platform=classic_armv7_a7 ARCH=arm
     rpSwap off
     md_ret_require="$md_build/parallel_n64_libretro.so"
 }
