@@ -18,13 +18,13 @@ rp_module_flags=""
 
 function sources_lr-yabasanshiro() {
     #gitPullOrClone "$md_build" https://github.com/devmiyax/yabause.git minimum_linux
-    #gitPullOrClone "$md_build" https://github.com/libretro/yabause.git yabasanshiro
-    gitPullOrClone "$md_build" https://github.com/mpcore-nxt/yabause.git yabasanshiro	
+    gitPullOrClone "$md_build" https://github.com/libretro/yabause.git yabasanshiro
+    #gitPullOrClone "$md_build" https://github.com/mpcore-nxt/yabause.git yabasanshiro	
     cd "$md_build/yabause"
 }
 
 function build_lr-yabasanshiro() {
-        make -j2 -C yabause/src/libretro/ platform=sun8i
+        make -j2 -C yabause/src/libretro/ platform=armvneonhardfloat
     md_ret_require="$md_build/yabause/src/libretro/yabasanshiro_libretro.so"
 }
 
