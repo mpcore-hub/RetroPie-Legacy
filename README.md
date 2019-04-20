@@ -21,7 +21,7 @@ Then you can download the latest mpcore2 RetroPie setup script with
 
 ```shell
 cd
-git clone --depth=1 https://github.com/mpcore2/RetroPie-Setup.git
+git clone --depth=1 https://github.com/mpcore-nxt/RetroPie-Setup.git
 ```
 
 The script is executed with 
