@@ -17,7 +17,7 @@ sudo apt-get dist-upgrade
 sudo apt-get install git
 ```
 
-Then you can download the latest mpcore2 RetroPie setup script with
+Then you can download the latest mpcore-nxt RetroPie setup script with
 
 ```shell
 cd
