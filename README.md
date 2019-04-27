@@ -1,4 +1,4 @@
-MPCORE2 - RetroPie-Setup
+MPCORE-NXT - RetroPie-Setup
 ========================
 
 
