@@ -290,7 +290,7 @@ function get_platform() {
                 __platform="vero4k"
                 ;;
             "Allwinner sun8i Family")
-                __platform="armv7-mali"
+                __platform="sun8i"
                 ;;
             *)
                 case $architecture in
@@ -418,6 +418,13 @@ function platform_H3-mali() {
     __platform_flags="arm armv7 neon mali gles"
 }
 
+function platform_sun8i() {
+    __default_cflags="-O2 -march=armv7-a -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -funsafe-math-optimizations"
+    __default_asflags=""
+    __default_makeflags="-j$(nproc)"
+    __has_binaries=0
+    __platform_flags="arm armv7 neon mali sun8i gles"
+}
 
 function platform_imx6() {
     __default_cflags="-O2 -march=armv7-a -mfpu=neon -mtune=cortex-a9 -mfloat-abi=hard -ftree-vectorize -funsafe-math-optimizations"
