@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is only for Allwinner H2/H3
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
