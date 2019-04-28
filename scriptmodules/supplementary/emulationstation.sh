@@ -135,7 +135,7 @@ function depends_emulationstation() {
 function sources_emulationstation() {
     local repo="$1"
     local branch="$2"
-    [[ -z "$repo" ]] && repo="https://github.com/mpcore-nxt/EmulationStation"
+    [[ -z "$repo" ]] && repo="https://github.com/mpcore-hub/EmulationStation"
     [[ -z "$branch" ]] && branch="nxt-legacy"
     gitPullOrClone "$md_build" "$repo" "$branch"
 }
