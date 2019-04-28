@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is only for Allwinner H2/H3
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -17,8 +17,7 @@ rp_module_section="exp"
 rp_module_flags="!x86 !armv6 !kms"
 
 function install_bin_drastic() {
-    downloadAndExtract "https://github.com/mpcore-nxt/archiv/raw/master/emulators/drastic.tar.gz" "$md_inst" --strip-components 1
-#    downloadAndExtract "http://drastic-ds.com/drastic_rpi.tar.bz2" "$md_inst" --strip-components 1
+    downloadAndExtract "https://github.com/mpcore-hub/mpcore-library/raw/nxt-legacy/emulators/drastic.tar.gz" "$md_inst" --strip-components 1
     patchVendorGraphics "$md_inst/drastic"
 }
 
