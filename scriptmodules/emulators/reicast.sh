@@ -82,7 +82,7 @@ _EOF_
     # add system
     addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
     addSystem "dreamcast"
-    addAutoConf reicast_input 0
+    addAutoConf reicast_input 1
 }
 
 function input_reicast() {
