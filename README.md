@@ -1,4 +1,4 @@
-MPCORE-NXT - RetroPie-Setup
+MPCORE-HUB - RetroPie-Setup
 ========================
 
 
@@ -21,7 +21,7 @@ Then you can download the latest mpcore-nxt RetroPie setup script with
 
 ```shell
 cd
-git clone --depth=1 https://github.com/mpcore-nxt/RetroPie-Setup.git
+git clone --depth=1 https://github.com/mpcore-hub/RetroPie-Setup.git
 ```
 
 The script is executed with 
