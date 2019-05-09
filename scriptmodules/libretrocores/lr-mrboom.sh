@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -22,10 +25,10 @@ function sources_lr-mrboom() {
 function build_lr-mrboom() {
     rpSwap on 1000
     make clean
-    if isPlatform "neon"; then
-        make HAVE_NEON=1
+    if isPlatform "sun8i"; then
+        make platform=classic_armv7_a7 ARCH=arm
     else
-        make
+        make HAVE_NEON=1
     fi
     md_ret_require="$md_build/mrboom_libretro.so"
 }
