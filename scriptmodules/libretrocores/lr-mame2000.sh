@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -28,7 +31,7 @@ function build_lr-mame2000() {
     make clean
     local params=()
     isPlatform "arm" && params+=("ARM=1" "USE_CYCLONE=1")
-    make "${params[@]}"
+    make platform=classic_armv7_a7 "${params[@]}"
     md_ret_require="$md_build/mame2000_libretro.so"
 }
 
