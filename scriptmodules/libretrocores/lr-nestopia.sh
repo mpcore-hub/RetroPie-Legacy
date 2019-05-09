@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -23,7 +26,7 @@ function build_lr-nestopia() {
     cd libretro
     rpSwap on 512
     make clean
-    make
+    make platform=classic_armv7_a7 ARCH=arm
     rpSwap off
     md_ret_require="$md_build/libretro/nestopia_libretro.so"
 }
