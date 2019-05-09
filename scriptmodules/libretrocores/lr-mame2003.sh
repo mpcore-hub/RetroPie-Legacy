@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -31,7 +34,7 @@ function build_lr-mame2003() {
     rpSwap on 1200
     make clean
     local params=()
-    isPlatform "arm" && params+=("ARM=1")
+    isPlatform "sun8i" && params+=("platform=classic_armv7_a7 ARM=1")
     make ARCH="$CFLAGS" "${params[@]}"
     rpSwap off
     md_ret_require="$md_build/$(_get_so_name_${md_id})_libretro.so"
