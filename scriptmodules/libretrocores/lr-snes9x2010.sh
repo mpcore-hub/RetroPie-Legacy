@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -27,8 +30,7 @@ function sources_lr-snes9x2010() {
 function build_lr-snes9x2010() {
     make -f Makefile.libretro clean
     local platform=""
-    isPlatform "arm" && platform+="armv"
-    isPlatform "neon" && platform+="neon"
+    isPlatform "sun8i" && platform+="classic_armv7_a7"
     if [[ -n "$platform" ]]; then
         make -f Makefile.libretro platform="$platform"
     else
