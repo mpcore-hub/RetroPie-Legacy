@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -22,7 +25,7 @@ function sources_lr-beetle-vb() {
 
 function build_lr-beetle-vb() {
     local params=(NEED_STEREO_SOUND=1)
-    isPlatform "arm" && params+=(platform=armv FRONTEND_SUPPORTS_RGB565=1)
+    isPlatform "sun8i" && params+=(platform=classic_armv7_a7 FRONTEND_SUPPORTS_RGB565=1)
     make clean
     make "${params[@]}"
     md_ret_require="$md_build/mednafen_vb_libretro.so"
