@@ -25,16 +25,16 @@ function depends_yabause() {
 }
 
 function sources_yabause() {    
-    gitPullOrClone "$md_build" https://github.com/devmiyax/yabause.git master
+    gitPullOrClone "$md_build" https://github.com/devmiyax/yabause.git minimum_linux
 }
 
 function build_yabause() {
-    mkdir build
-    cd build
-        export CFLAGS="-O2 -march=armv7-a -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard"
-        cmake ../yabause -DYAB_PORTS=retro_arena -DYAB_WANT_DYNAREC_DEVMIYAX=ON -DYAB_WANT_ARM7=ON -DCMAKE_TOOLCHAIN_FILE=../yabause/src/retro_arena/pc.cmake
-    make
-    md_ret_require="$md_build/build/src/retro_arena/yabasanshiro"
+    mkdir build 
+	  cd build
+	  export CFLAGS="-O2 -march=armv7-a -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -funsafe-math-optimizations"
+	  cmake ../yabause -DYAB_PORTS=xu4 -DYAB_WANT_DYNAREC_DEVMIYAX=ON -DYAB_WANT_ARM7=ON
+    make    
+    md_ret_require="$md_build/build/src/xu4/yabasanshiro"
 }
 
 function install_yabause() {
