@@ -21,8 +21,8 @@ rp_module_flags=""
 
 function sources_lr-yabasanshiro() {
     #gitPullOrClone "$md_build" https://github.com/devmiyax/yabause.git minimum_linux
-    gitPullOrClone "$md_build" https://github.com/libretro/yabause.git yabasanshiro
-    #gitPullOrClone "$md_build" https://github.com/mpcore-nxt/yabause.git yabasanshiro	
+    #gitPullOrClone "$md_build" https://github.com/libretro/yabause.git yabasanshiro
+    gitPullOrClone "$md_build" https://github.com/mpcore-hub/yabause.git yabasanshiro	
     cd "$md_build/yabause"
 }
 
