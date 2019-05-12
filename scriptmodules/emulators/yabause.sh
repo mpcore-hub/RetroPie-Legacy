@@ -39,7 +39,7 @@ function build_yabause() {
 
 function install_yabause() {
     md_ret_files=(
-        'build/src/retro_arena/yabasanshiro'
+        'build/src/xu4/yabasanshiro'
     )
 }
 
