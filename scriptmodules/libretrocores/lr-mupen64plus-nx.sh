@@ -27,7 +27,11 @@ function build_lr-mupen64plus-nx() {
     rpSwap on 1000
     make clean
     local params=()
-    if isPlatform "H3-mali"; then
+    if isPlatform "sun8i"; then
+        params+=(CPUFLAGS="-DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE")
+        params+=(GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm)
+        params+=(GL_LIB:=-lGLESv2)
+    elif isPlatform "sun50i"; then
         params+=(CPUFLAGS="-DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE")
         params+=(GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm)
         params+=(GL_LIB:=-lGLESv2)
