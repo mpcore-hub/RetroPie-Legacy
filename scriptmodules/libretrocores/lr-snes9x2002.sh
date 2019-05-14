@@ -29,8 +29,16 @@ function sources_lr-snes9x2002() {
 }
 
 function build_lr-snes9x2002() {
-    make clean
-    CFLAGS="$CFLAGS -Wa,-mimplicit-it=thumb" make platform=classic_armv7_a7 ARM_ASM=1
+    if isPlatform "sun8i"; then
+        make clean
+        CFLAGS="$CFLAGS -Wa,-mimplicit-it=thumb" make platform=classic_armv7_a7 ARM_ASM=1
+    elif isPlatform "sun50i"; then
+        make clean
+        CFLAGS="$CFLAGS -Wa,-mimplicit-it=thumb" make platform=sun50i ARM_ASM=1
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/snes9x2002_libretro.so"
 }
 
