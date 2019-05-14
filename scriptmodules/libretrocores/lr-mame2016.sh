@@ -28,8 +28,16 @@ function sources_lr-mame2016() {
 function build_lr-mame2016() {
     rpSwap on 1200
     local params=($(_get_params_lr-mame) SUBTARGET=arcade)
-    make -f Makefile.libretro clean
-    make -f Makefile.libretro "${params[@]}"
+    if isPlatform "sun8i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro "${params[@]}"
+    else
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro "${params[@]}"
+    fi
     rpSwap off
     md_ret_require="$md_build/mamearcade2016_libretro.so"
 }
