@@ -23,7 +23,13 @@ function sources_lr-np2kai() {
 
 function build_lr-np2kai() {
     cd ./sdl2
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make platform=sun50i
+    else
+        exit
+    fi
     md_ret_require="$md_build/sdl2/np2kai_libretro.so"
 }
 
