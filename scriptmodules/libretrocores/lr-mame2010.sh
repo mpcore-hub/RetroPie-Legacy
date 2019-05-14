@@ -24,11 +24,20 @@ function sources_lr-mame2010() {
 
 function build_lr-mame2010() {
     rpSwap on 750
-    make clean
-    local params=()
-    isPlatform "arm" && params+=("VRENDER=soft" "ARM_ENABLED=1")
-    make "${params[@]}" ARCHOPTS="$CFLAGS" buildtools
-    make "${params[@]}" ARCHOPTS="$CFLAGS"
+    local params=("VRENDER=soft" "ARM_ENABLED=1")
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 "${params[@]}" ARCHOPTS="$CFLAGS" buildtools
+        make platform=classic_armv7_a7 "${params[@]}" ARCHOPTS="$CFLAGS"
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i "${params[@]}" ARCHOPTS="$CFLAGS" buildtools
+        make platform=sun50i "${params[@]}" ARCHOPTS="$CFLAGS"
+    else
+        make clean
+        make "${params[@]}" ARCHOPTS="$CFLAGS" buildtools
+        make "${params[@]}" ARCHOPTS="$CFLAGS"
+    fi
     rpSwap off
     md_ret_require="$md_build/mame2010_libretro.so"
 }
