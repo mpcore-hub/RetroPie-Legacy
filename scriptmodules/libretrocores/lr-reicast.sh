@@ -23,8 +23,16 @@ function sources_lr-reicast() {
 }
 
 function build_lr-reicast() {
-    make clean
-    make platform=sun8i ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=sun8i ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i ARCH=arm
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/reicast_libretro.so"
 }
 
