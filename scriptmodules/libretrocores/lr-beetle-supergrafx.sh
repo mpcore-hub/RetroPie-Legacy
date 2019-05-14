@@ -23,8 +23,16 @@ function sources_lr-beetle-supergrafx() {
 }
 
 function build_lr-beetle-supergrafx() {
-    make clean
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/mednafen_supergrafx_libretro.so"
 }
 
