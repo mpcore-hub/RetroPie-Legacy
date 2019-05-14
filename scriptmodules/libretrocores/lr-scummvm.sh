@@ -31,8 +31,7 @@ function build_lr-scummvm() {
         make clean -C backends/platform/libretro/build
         make platform=armvneon "${params[@]}" -C backends/platform/libretro/build
     else
-        make clean -C backends/platform/libretro/build
-        make -C "${params[@]}" backends/platform/libretro/build
+        exit
     fi
     md_ret_require="$md_build/backends/platform/libretro/build/scummvm_libretro.so"
 }
