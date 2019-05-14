@@ -29,8 +29,16 @@ function sources_lr-beetle-psx() {
 }
 
 function build_lr-beetle-psx() {
-    make clean
-    make HAVE_HW=1
+    if isPlatform "sun8i"; then
+        make clean
+        make HAVE_HW=1
+    elif isPlatform "sun50i"; then
+        make clean
+        make HAVE_HW=1
+    else
+        make clean
+        make HAVE_HW=1
+    fi
     md_ret_require=(
         'mednafen_psx_hw_libretro.so'
     )
