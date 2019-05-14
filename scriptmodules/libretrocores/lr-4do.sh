@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# Only for Allwinner H2+/H3 sun8i
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -21,8 +24,16 @@ function sources_lr-4do() {
 }
 
 function build_lr-4do() {
-    make clean
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/4do_libretro.so"
 }
 
