@@ -25,15 +25,16 @@ function sources_lr-dosbox() {
 
 function build_lr-dosbox() {
     local params=()
-    if isPlatform "arm"; then
-        if isPlatform "armv6"; then
-            params+="WITH_DYNAREC=oldarm"
-        else
-            params+="WITH_DYNAREC=arm"
-        fi
+    if isPlatform "sun8i"; then
+        make clean
+        make WITH_DYNAREC=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make WITH_DYNAREC=arm
+    else
+        make clean
+        make WITH_DYNAREC=arm
     fi
-    make clean
-    make "${params[@]}"
     md_ret_require="$md_build/dosbox_libretro.so"
 }
 
