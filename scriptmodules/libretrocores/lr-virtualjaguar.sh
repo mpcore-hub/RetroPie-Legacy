@@ -24,8 +24,16 @@ function sources_lr-virtualjaguar() {
 }
 
 function build_lr-virtualjaguar() {
-    make clean
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/virtualjaguar_libretro.so"
 }
 
