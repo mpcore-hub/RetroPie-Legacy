@@ -25,10 +25,14 @@ function sources_lr-yabause() {
 
 function build_lr-yabause() {
     cd libretro
-    make clean
-    if isPlatform "neon"; then
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=armvneonhardfloat
+    elif isPlatform "sun50i"; then
+        make clean
         make platform=armvneonhardfloat
     else
+        make clean
         make
     fi
     md_ret_require="$md_build/libretro/yabause_libretro.so"
