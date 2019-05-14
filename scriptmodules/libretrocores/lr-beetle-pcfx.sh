@@ -23,8 +23,16 @@ function sources_lr-beetle-pcfx() {
 }
 
 function build_lr-beetle-pcfx() {
-    make clean
-    make
+    if isPlatform "sun8i"; then
+        make clean
+        make
+    elif isPlatform "sun50i"; then
+        make clean
+        make
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/mednafen_pcfx_libretro.so"
 }
 
