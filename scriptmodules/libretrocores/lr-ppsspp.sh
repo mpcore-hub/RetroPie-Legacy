@@ -37,19 +37,17 @@ function sources_lr-ppsspp() {
 function build_lr-ppsspp() {
     #build_ffmpeg_ppsspp "$md_build/ffmpeg"
     cd "$md_build"
-
-    make -C libretro clean
     local params=()
-    if isPlatform "rpi"; then
-        if isPlatform "rpi1"; then
-            params+=("platform=rpi1")
-        else
-            params+=("platform=rpi2")
-        fi
-    elif isPlatform "mali"; then
-        params+=("platform=armvglesneon")
+    if isPlatform "sun8i"; then
+        make -C libretro clean
+        make -C libretro platform=armvglesneon
+    elif isPlatform "sun50i"; then
+        make -C libretro clean
+        make -C libretro platform=armvglesneon
+    else
+        make -C libretro clean
+        make -C libretro
     fi
-    make -C libretro "${params[@]}"
     md_ret_require="$md_build/libretro/ppsspp_libretro.so"
 }
 
