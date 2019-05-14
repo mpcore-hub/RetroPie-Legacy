@@ -29,10 +29,16 @@ function sources_lr-fbalpha2012() {
 
 function build_lr-fbalpha2012() {
     cd svn-current/trunk/
-    make -f makefile.libretro clean
-    local params=()
-    isPlatform "sun8i" && params+=("platform=classic_armv7_a7")
-    make -f makefile.libretro "${params[@]}"
+    if isPlatform "sun8i"; then
+        make -f makefile.libretro clean
+        make -f makefile.libretro platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make -f makefile.libretro clean
+        make -f makefile.libretro platform=sun50i
+    else
+        make -f makefile.libretro clean
+        make -f makefile.libretro
+    fi
     md_ret_require="$md_build/svn-current/trunk/fbalpha2012_libretro.so"
 }
 
