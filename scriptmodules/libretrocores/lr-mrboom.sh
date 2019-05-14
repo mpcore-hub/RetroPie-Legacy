@@ -24,12 +24,17 @@ function sources_lr-mrboom() {
 
 function build_lr-mrboom() {
     rpSwap on 1000
-    make clean
     if isPlatform "sun8i"; then
+        make clean
         make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
     else
+        make clean
         make HAVE_NEON=1
     fi
+    rpSwap off
     md_ret_require="$md_build/mrboom_libretro.so"
 }
 
