@@ -28,8 +28,16 @@ function sources_lr-snes9x2005() {
 }
 
 function build_lr-snes9x2005() {
-    make clean
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/snes9x2005_libretro.so"
 }
 
