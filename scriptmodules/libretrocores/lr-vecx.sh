@@ -23,8 +23,16 @@ function sources_lr-vecx() {
 }
 
 function build_lr-vecx() {
-    make clean
-    make -f Makefile.libretro platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=sun50i
+    else
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro
+    fi
     md_ret_require="$md_build/vecx_libretro.so"
 }
 
