@@ -23,8 +23,16 @@ function sources_lr-caprice32() {
 }
 
 function build_lr-caprice32() {
-    make clean
-    make
+    if isPlatform "sun8i"; then
+        make clean
+        make
+    elif isPlatform "sun50i"; then
+        make clean
+        make
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/cap32_libretro.so"
 }
 
