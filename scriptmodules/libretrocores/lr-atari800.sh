@@ -23,8 +23,16 @@ function sources_lr-atari800() {
 }
 
 function build_lr-atari800() {
-    make clean
-    make
+    if isPlatform "sun8i"; then
+        make clean
+        make
+    elif isPlatform "sun50i"; then
+        make clean
+        make
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/atari800_libretro.so"
 }
 
