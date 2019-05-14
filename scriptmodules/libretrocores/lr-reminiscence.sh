@@ -23,8 +23,16 @@ function sources_lr-reminiscence() {
 }
 
 function build_lr-reminiscence() {
-    make clean
-    make platform=rpi2
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=rpi2
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=rpi3
+    else
+        make clean
+        make
+    fi
 }
 
 function install_lr-reminiscence() {
