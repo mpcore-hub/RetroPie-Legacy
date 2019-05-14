@@ -23,7 +23,13 @@ function sources_lr-meowpc98() {
 
 function build_lr-meowpc98() {
     cd ./libretro
-    make
+    if isPlatform "sun8i"; then
+        make
+    elif isPlatform "sun50i"; then
+        make
+    else
+        make
+    fi
     md_ret_require="$md_build/libretro/nekop2_libretro.so"
 }
 
