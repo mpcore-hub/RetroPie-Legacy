@@ -28,7 +28,13 @@ function sources_lr-superflappybirds() {
 
 function build_lr-superflappybirds() {
     cmake .
-    make
+    if isPlatform "sun8i"; then
+        make
+    elif isPlatform "sun50i"; then
+        make
+    else
+        make
+    fi
     md_ret_require="$md_build/superflappybirds_libretro.so"
 }
 
