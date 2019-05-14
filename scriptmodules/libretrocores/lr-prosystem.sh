@@ -23,8 +23,16 @@ function sources_lr-prosystem() {
 }
 
 function build_lr-prosystem() {
-    make clean
-    CXXFLAGS="$CXXFLAGS -fsigned-char" make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        CXXFLAGS="$CXXFLAGS -fsigned-char" make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        CXXFLAGS="$CXXFLAGS -fsigned-char" make platform=sun50i
+    else
+        make clean
+        CXXFLAGS="$CXXFLAGS -fsigned-char" make
+    fi
     md_ret_require="$md_build/prosystem_libretro.so"
 }
 
