@@ -24,11 +24,17 @@ function sources_lr-gpsp() {
 }
 
 function build_lr-gpsp() {
-    make clean
     rpSwap on 512
-    local params=()
-    isPlatform "sun8i" && params+=(platform=classic_armv7_a7)
-    make "${params[@]}"
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     rpSwap off
     md_ret_require="$md_build/gpsp_libretro.so"
 }
