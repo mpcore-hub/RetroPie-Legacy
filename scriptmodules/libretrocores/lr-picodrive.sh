@@ -23,15 +23,17 @@ function sources_lr-picodrive() {
 }
 
 function build_lr-picodrive() {
-    local params=()
-    isPlatform "arm" && params+=(platform=armv ARM_ASM=1 use_fame=0 use_cyclone=1 use_sh2drc=1 use_svpdrc=1)
-    if isPlatform "armv6"; then
-        params+=(use_cz80=0 use_drz80=1)
+    local params=(platform=armv ARM_ASM=1 use_fame=0 use_cyclone=1 use_sh2drc=1 use_svpdrc=1 use_cz80=1 use_drz80=0)
+    if isPlatform "sun8i"; then
+        make clean
+        make -f Makefile.libretro "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make clean
+        make -f Makefile.libretro "${params[@]}"
     else
-        params+=(use_cz80=1 use_drz80=0)
+        make clean
+        make -f Makefile.libretro "${params[@]}"
     fi
-    make clean
-    make -f Makefile.libretro "${params[@]}"
     md_ret_require="$md_build/picodrive_libretro.so"
 }
 
