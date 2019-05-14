@@ -34,8 +34,16 @@ function sources_lr-parallel-n64() {
 
 function build_lr-parallel-n64() {
     rpSwap on 1000
-    make clean
-    make -j2 platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i
+    else
+        make clean
+        make
+    fi
     rpSwap off
     md_ret_require="$md_build/parallel_n64_libretro.so"
 }
