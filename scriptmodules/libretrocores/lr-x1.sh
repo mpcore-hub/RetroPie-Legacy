@@ -23,8 +23,16 @@ function sources_lr-x1() {
 
 function build_lr-x1() {
     cd libretro
-    make clean
-    make
+    if isPlatform "sun8i"; then
+        make clean
+        make
+    elif isPlatform "sun50i"; then
+        make clean
+        make
+    else
+        make clean
+        make
+    fi
     md_ret_require="$md_build/libretro/x1_libretro.so"
 }
 
