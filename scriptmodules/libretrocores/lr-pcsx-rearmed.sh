@@ -29,19 +29,17 @@ function sources_lr-pcsx-rearmed() {
 }
 
 function build_lr-pcsx-rearmed() {
-    local params=()
-
-    if isPlatform "arm"; then
-        params+=(ARCH=arm USE_DYNAREC=1)
-        if isPlatform "neon"; then
-            params+=(HAVE_NEON=1 BUILTIN_GPU=neon)
-        else
-            params+=(HAVE_NEON=0 BUILTIN_GPU=peops)
-        fi
+    local params=(ARCH=arm USE_DYNAREC=1 HAVE_NEON=1 BUILTIN_GPU=neon)
+    if isPlatform "sun8i"; then
+        make -f Makefile.libretro "${params[@]}" clean
+        make -f Makefile.libretro "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make -f Makefile.libretro "${params[@]}" clean
+        make -f Makefile.libretro "${params[@]}"
+    else
+        make -f Makefile.libretro "${params[@]}" clean
+        make -f Makefile.libretro "${params[@]}"
     fi
-
-    make -f Makefile.libretro "${params[@]}" clean
-    make -f Makefile.libretro "${params[@]}"
     md_ret_require="$md_build/pcsx_rearmed_libretro.so"
 }
 
