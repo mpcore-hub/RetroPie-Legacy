@@ -24,10 +24,16 @@ function sources_lr-desmume2015() {
 
 function build_lr-desmume2015() {
     cd desmume
-    local params=()
-    isPlatform "arm" && params+=("platform=armvhardfloat")
-    make -f Makefile.libretro clean
-    make -f Makefile.libretro "${params[@]}"
+    if isPlatform "sun8i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=armvhardfloat
+    elif isPlatform "sun50i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=armvhardfloat
+    else
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro
+    fi
     md_ret_require="$md_build/desmume/desmume2015_libretro.so"
 }
 
