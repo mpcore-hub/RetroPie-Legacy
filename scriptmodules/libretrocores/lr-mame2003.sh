@@ -32,15 +32,16 @@ function sources_lr-mame2003() {
 
 function build_lr-mame2003() {
     rpSwap on 1200
+    local params=("ARM=1")
     if isPlatform "sun8i"; then
         make clean
-        make platform=classic_armv7_a7 ARCH=arm ARM=1
+        make platform=classic_armv7_a7 ARCH="$CFLAGS" "${params[@]}"
     elif isPlatform "sun50i"; then
         make clean
-        make platform=sun50i ARCH=arm ARM=1
+        make platform=sun50i ARCH="$CFLAGS" "${params[@]}"
     else
         make clean
-        make ARCH=arm ARM=1
+        make ARCH="$CFLAGS" "${params[@]}"
     fi
     rpSwap off
     md_ret_require="$md_build/$(_get_so_name_${md_id})_libretro.so"
