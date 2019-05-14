@@ -31,8 +31,16 @@ function build_lr-fbalpha() {
     local params=()
     isPlatform "arm" && params+=(USE_CYCLONE=1)
     isPlatform "neon" && params+=(HAVE_NEON=1)
-    make -f makefile.libretro clean
-    make -f makefile.libretro platform=classic_armv7_a7 ARCH=arm "${params[@]}"
+    if isPlatform "sun8i"; then
+        make -f makefile.libretro clean
+        make -f makefile.libretro platform=classic_armv7_a7 ARCH=arm "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make -f makefile.libretro clean
+        make -f makefile.libretro platform=sun50i "${params[@]}"
+    else
+        make -f makefile.libretro clean
+        make -f makefile.libretro "${params[@]}"
+    fi
     md_ret_require="$md_build/fbalpha_libretro.so"
 }
 
