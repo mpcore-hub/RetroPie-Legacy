@@ -23,7 +23,13 @@ function sources_lr-puae() {
 }
 
 function build_lr-puae() {
-    make platform=classic_armv7_a7 ARCH=arm
+    if isPlatform "sun8i"; then
+        make platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make platform=sun50i
+    else
+        make
+    fi
     md_ret_require="$md_build/puae_libretro.so"
 }
 
