@@ -38,6 +38,10 @@ function build_lr-parallel-n64-nx() {
         params+=(CPUFLAGS="-DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE")
         params+=(GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm)
         params+=(GL_LIB:=-lGLESv2)
+    elif isPlatform "sun50i"; then
+        params+=(CPUFLAGS="-DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE")
+        params+=(GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm)
+        params+=(GL_LIB:=-lGLESv2)
     else
         exit
     fi
