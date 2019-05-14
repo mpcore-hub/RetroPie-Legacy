@@ -24,8 +24,17 @@ function sources_lr-beetle-vb() {
 }
 
 function build_lr-beetle-vb() {
-    local params=(NEED_STEREO_SOUND=1)
-    isPlatform "sun8i" && params+=(platform=classic_armv7_a7 FRONTEND_SUPPORTS_RGB565=1)
+    local params=(NEED_STEREO_SOUND=1 FRONTEND_SUPPORTS_RGB565=1)
+    if isPlatform "sun8i"; then
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make clean
+        make platform=sun50i "${params[@]}"
+    else
+        make clean
+        make "${params[@]}"
+    fi
     make clean
     make "${params[@]}"
     md_ret_require="$md_build/mednafen_vb_libretro.so"
