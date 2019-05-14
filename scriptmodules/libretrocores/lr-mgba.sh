@@ -24,10 +24,14 @@ function sources_lr-mgba() {
 }
 
 function build_lr-mgba() {
-    make -f Makefile.libretro clean
     if isPlatform "sun8i"; then
+        make -f Makefile.libretro clean
         make -f Makefile.libretro platform=classic_armv7_a7 ARCH=arm
+    elif isPlatform "sun50i"; then
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=sun50i
     else
+        make -f Makefile.libretro clean
         make -f Makefile.libretro HAVE_NEON=1
     fi
     md_ret_require="$md_build/mgba_libretro.so"
