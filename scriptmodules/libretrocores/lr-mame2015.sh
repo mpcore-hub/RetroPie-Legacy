@@ -29,8 +29,16 @@ function sources_lr-mame2015() {
 
 function build_lr-mame2015() {
     rpSwap on 1200
-    make clean
-    make
+    if isPlatform "sun8i"; then
+        make clean
+        make
+    elif isPlatform "sun50i"; then
+        make clean
+        make
+    else
+        make clean
+        make
+    fi
     rpSwap off
     md_ret_require="$md_build/mame2015_libretro.so"
 }
