@@ -25,8 +25,16 @@ function sources_lr-mess2016() {
 function build_lr-mess2016() {
     rpSwap on 1200
     local params=($(_get_params_lr-mame) SUBTARGET=mess)
-    #make clean
-    make -j2 "${params[@]}"
+    if isPlatform "sun8i"; then
+        #make clean
+        make -j2 "${params[@]}"
+    elif isPlatform "sun50i"; then
+        #make clean
+        make -j2 "${params[@]}"
+    else
+        #make clean
+        make -j2 "${params[@]}"
+    fi
     rpSwap off
     md_ret_require="$md_build/mess2016_libretro.so"
 }
