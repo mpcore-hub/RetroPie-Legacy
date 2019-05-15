@@ -52,6 +52,8 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/." "/etc/emulationstation"
 				#copy boot and bios files
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/boot/." "/boot"
+				#install motd logo file
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/motd_logo/." "/etc/update-motd.d"
 				#change access
                 chown -cR pi:pi "/etc/emulationstation"
                 chown -cR pi:pi "/opt/retropie"
