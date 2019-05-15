@@ -55,6 +55,9 @@ function gui_microplay() {
 				#install Emulationstation system logo
 				mv -f "/opt/retropie/supplementary/emulationstation/resources/splash.svg" "/opt/retropie/supplementary/emulationstation/resources/splash.svg.bkup"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Splashscreen/." "/opt/retropie/supplementary/emulationstation/resources"
+				#install ES Audio-Fix
+				mv -f "/opt/retropie/configs/all/emulationstation/es_settings.cfg" "/opt/retropie/configs/all/emulationstation/es_settings.cfg.bkup"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Audiofix/." "/opt/retropie/configs/all/emulationstation/"
 				#copy boot and bios files
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/boot/." "/boot"
 				#install motd logo file
