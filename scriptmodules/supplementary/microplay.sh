@@ -31,29 +31,25 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-				#change access
-                chown -cR pi:pi "/etc/emulationstation"
-                chown -cR pi:pi "/opt/retropie"
-                chown -cR pi:pi "/home/pi/RetroPie"
-                chown -cR pi:pi "/home/pi/RetroPie-Setup"
 				#remove old System
                 rm -rf "$datadir/retropiemenu/icons"
 		        rm -rf "/home/pi/RetrOrangePi"
 		        rm -rf "/home/pi/RetroPie/retropiemenu/RetrOrangePi"
 				#install retropiemenu iconset
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
-                chown -R pi:pi "$datadir/retropiemenu/icons"
 				#install retropiemenu gamelist
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
 				#install mpcore data
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
-                chown -R pi:pi "$datadir/retropiemenu/Microplay"
 				#install tekcommand_png runcommand images
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
-                chown -R pi:pi "/opt/retropie/"
 				#install Screensaver images
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Screensaver/." "/opt/retropie/configs/all/emulationstation"
-                chown -R pi:pi "/opt/retropie/configs/all/emulationstation"
+				#change access
+                chown -cR pi:pi "/etc/emulationstation"
+                chown -cR pi:pi "/opt/retropie"
+                chown -cR pi:pi "/home/pi/RetroPie"
+                chown -cR pi:pi "/home/pi/RetroPie-Setup"
 
 
                 printMsgs "dialog" "Microplay-Core Base updated\n\nRestart System to apply."
