@@ -1,0 +1,19 @@
+################
+#python install#
+################
+cd /home/pi/RetroPie/retropiemenu/Microplay/GPIO/orangepi_PC_gpio_pyH3-master
+python setup.py install 
+
+or install in retropiemenu over retrorangepi -> gpio -> install_base
+
+###################
+#crontab autostart#
+###################
+
+sudo crontab -e
+
+add 
+
+@reboot sleep 10 && sudo python /home/pi/RetroPie/retropiemenu/Microplay/mpscript_buttons.py &
+
+save and sudo reboot
