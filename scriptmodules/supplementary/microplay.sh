@@ -13,7 +13,7 @@
 #
 
 rp_module_id="microplay"
-rp_module_desc="Microplay base script"
+rp_module_desc="Microplay NXT-Base"
 rp_module_section="config"
 
 function depends_microplay() {
@@ -23,7 +23,9 @@ function depends_microplay() {
 function gui_microplay() {
     while true; do
         local options=(
-            1 "update mpcore base"
+            1 "update mpcore-nxt base"
+            2 "update mpcore-nxt themes"
+            3 "update OS"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -31,6 +33,7 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
+				#mpcore-nxt base			
 				#remove old System
                 rm -rf "$datadir/retropiemenu/icons"
 		        rm -rf "/home/pi/RetrOrangePi"
@@ -66,7 +69,18 @@ function gui_microplay() {
                 chown -cR pi:pi "/home/pi/RetroPie-Setup"
 
 
-                printMsgs "dialog" "Microplay-Core Base updated\n\nRestart System to apply."
+                printMsgs "dialog" "mpcore-nxt base updated\n\nRestart System to apply."
+                ;;
+            2)
+				#mpcore-nxt themes
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/themes/." "/etc/emulationstation/themes"
+                chown -cR pi:pi "/etc/emulationstation"
+                printMsgs "dialog" "mpcore-nxt themes updated\n\nRestart System to apply."
+                ;;
+            3)
+				#update OS
+				apt-get update && apt-get upgrade -y
+                printMsgs "dialog" "OS updated\n\nRestart System to apply."
                 ;;
         esac
     done
