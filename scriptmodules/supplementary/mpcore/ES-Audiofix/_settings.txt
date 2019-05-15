@@ -1,0 +1,4 @@
+sudo nano /opt/retropie/configs/all/emulationstation/es_settings.cfg
+
+
+AudioDevice = "Lineout volume control"
