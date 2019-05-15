@@ -50,7 +50,7 @@ function gui_microplay() {
                 chown -R pi:pi "$datadir/retropiemenu/Microplay"
 				#install tekcommand runcommand 
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
-                chown -R pi:pi "$datadir/retropiemenu/Microplay"
+                chown -R pi:pi "/opt/retropie/"
 
 
                 printMsgs "dialog" "Microplay-Core Base updated\n\nRestart System to apply."
