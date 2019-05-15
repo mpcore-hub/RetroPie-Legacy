@@ -14,7 +14,7 @@
 
 rp_module_id="microplay"
 rp_module_desc="Microplay base script"
-rp_module_section="core"
+rp_module_section="config"
 
 function depends_microplay() {
     getDepends mc
