@@ -44,7 +44,7 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
                 chown -R pi:pi "$datadir/retropiemenu/icons"
 				#install retropiemenu gamelist
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist" "/opt/retropie/configs/all/emulationstation/gamelists/retropie"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/" "/opt/retropie/configs/all/emulationstation/gamelists/retropie"
                 chown -R pi:pi "$datadir/retropiemenu/icons"				
 				#install mpcore data
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay" "$datadir/retropiemenu/"
