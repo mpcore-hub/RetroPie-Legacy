@@ -1,0 +1,7 @@
+Armbian Legacy
+
+nano /etc/default/cpufrequtils
+
+MIN_SPEED=648000
+MAX_SPEED=1296000
+GOVERNOR=ondemand

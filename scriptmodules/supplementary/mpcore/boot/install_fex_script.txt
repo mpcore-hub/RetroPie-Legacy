@@ -1,0 +1,19 @@
+###############
+### fex2bin ###
+###################################################
+
+fex2bin /boot/bin/orangepipc_p.fex /boot/script.bin
+
+fex2bin /boot/bin/orangepione_p.fex /boot/script.bin
+fex2bin /boot/bin/orangepilite_p.fex /boot/script.bin
+
+fex2bin /boot/bin/tritium-h3.fex /boot/script.bin
+fex2bin /boot/bin/bananapim2zero.fex /boot/script.bin
+
+
+#################
+### benchmark ###
+###################################################
+*run in terminal
+
+sysbench --test=cpu --cpu-max-prime=20000 run --num-threads=4
