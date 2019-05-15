@@ -40,12 +40,16 @@ function gui_microplay() {
                 rm -rf "$datadir/retropiemenu/icons"
 		        rm -rf "/home/pi/RetrOrangePi"
 		        rm -rf "/home/pi/RetroPie/retropiemenu/RetrOrangePi"
-				#install iconset
-                cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_snes" "$datadir/retropiemenu/icons"
+				#install retropiemenu iconset
+                cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
                 chown -R pi:pi "$datadir/retropiemenu/icons"
+				#install retropiemenu gamelist
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist" "/opt/retropie/configs/all/emulationstation/gamelists/retropie"
+                chown -R pi:pi "$datadir/retropiemenu/icons"				
 				#install mpcore data
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay" "$datadir/retropiemenu/"
                 chown -R pi:pi "$datadir/retropiemenu/Microplay"
+
 
                 printMsgs "dialog" "Microplay-Core Base updated\n\nRestart System to apply."
                 ;;
