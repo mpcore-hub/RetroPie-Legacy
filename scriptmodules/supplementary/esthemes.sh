@@ -25,11 +25,11 @@ function install_theme_esthemes() {
     local theme="$1"
     local repo="$2"
     if [[ -z "$repo" ]]; then
-        repo="retr0rangepi"
+        repo="RetroPie"
     fi
     if [[ -z "$theme" ]]; then
-        theme="cosmos-ropi"
-        repo="retr0rangepi"
+        theme="carbon"
+        repo="RetroPie"
     fi
     mkdir -p "/etc/emulationstation/themes"
     gitPullOrClone "/etc/emulationstation/themes/$theme" "https://github.com/$repo/es-theme-$theme.git"
