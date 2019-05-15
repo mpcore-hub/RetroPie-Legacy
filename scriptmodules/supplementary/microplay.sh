@@ -48,9 +48,12 @@ function gui_microplay() {
 				#install mpcore data
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
                 chown -R pi:pi "$datadir/retropiemenu/Microplay"
-				#install tekcommand runcommand 
+				#install tekcommand_png runcommand images
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
                 chown -R pi:pi "/opt/retropie/"
+				#install Screensaver images
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Screensaver/." "/opt/retropie/configs/all/emulationstation"
+                chown -R pi:pi "/opt/retropie/configs/all/emulationstation"
 
 
                 printMsgs "dialog" "Microplay-Core Base updated\n\nRestart System to apply."
