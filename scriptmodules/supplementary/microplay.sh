@@ -45,6 +45,8 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
 				#install Screensaver images
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Screensaver/." "/opt/retropie/configs/all/emulationstation"
+				#install Splashscreen images and sounds
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/splashscreens/." "/home/pi/RetroPie/splashscreens"
 				#change access
                 chown -cR pi:pi "/etc/emulationstation"
                 chown -cR pi:pi "/opt/retropie"
