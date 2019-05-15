@@ -1,0 +1,3 @@
+/opt/retropie/supplementary/emulationstation/resources
+
+splash.svg
