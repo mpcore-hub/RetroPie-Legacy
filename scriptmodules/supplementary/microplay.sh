@@ -24,8 +24,7 @@ function gui_microplay() {
     while true; do
         local options=(
             1 "update mpcore-nxt base"
-            2 "reset BG-Music to default"
-            3 "update OS"
+            2 "update OS"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -78,12 +77,6 @@ function gui_microplay() {
                 printMsgs "dialog" "mpcore-nxt base updated\n\nRestart System to apply."
                 ;;
             2)
-				#set BGM to default
-                rm -rf "/home/pi/RetroPie/music/."
-                #cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/music/." "/home/pi/RetroPie/music"
-                printMsgs "dialog" "Background-Music set to default-set."
-                ;;
-            3)
 				#update OS
 				apt-get update && apt-get upgrade -y
                 printMsgs "dialog" "OS updated\n\nRestart System to apply."
