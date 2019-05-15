@@ -81,6 +81,7 @@ function gui_microplay() {
 				#set BGM to default
                 rm -r /home/pi/RetroPie/music/*
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/music/." "/home/pi/RetroPie/music"
+                chown -cR pi:pi "/home/pi/RetroPie/music"
                 printMsgs "dialog" "Background-Music set to default-set."
                 ;;
             3)
