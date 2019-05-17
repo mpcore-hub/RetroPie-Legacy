@@ -13,9 +13,9 @@
 #
 
 rp_module_id="lr-fbalpha"
-rp_module_desc="Arcade emu - Final Burn Alpha (v0.2.97.43) port for libretro"
+rp_module_desc="Arcade emu - FB Alpha (FB Edition) v0.2.97.44 (WIP) port for libretro"
 rp_module_help="Previously called lr-fba-next\n\ROM Extension: .zip\n\nCopy your FBA roms to\n$romdir/fba or\n$romdir/neogeo or\n$romdir/arcade\n\nFor NeoGeo games the neogeo.zip BIOS is required and must be placed in the same directory as your FBA roms."
-rp_module_licence="NONCOM https://raw.githubusercontent.com/libretro/fbalpha/master/src/license.txt"
+rp_module_licence="NONCOM https://raw.githubusercontent.com/libretro/FBAlphaFB/master/src/license.txt"
 rp_module_section="main"
 
 function _update_hook_lr-fbalpha() {
@@ -24,30 +24,31 @@ function _update_hook_lr-fbalpha() {
 }
 
 function sources_lr-fbalpha() {
-    gitPullOrClone "$md_build" https://github.com/libretro/fbalpha.git
+    gitPullOrClone "$md_build" https://github.com/libretro/FBAlphaFB.git
 }
 
 function build_lr-fbalpha() {
+    cd src/burner/libretro
     local params=()
     isPlatform "arm" && params+=(USE_CYCLONE=1)
     isPlatform "neon" && params+=(HAVE_NEON=1)
     if isPlatform "sun8i"; then
-        make -f makefile.libretro clean
-        make -f makefile.libretro platform=classic_armv7_a7 ARCH=arm "${params[@]}"
+        make clean
+        make platform=classic_armv7_a7 ARCH=arm "${params[@]}"
     elif isPlatform "sun50i"; then
-        make -f makefile.libretro clean
-        make -f makefile.libretro platform=sun50i "${params[@]}"
+        make clean
+        make platform=sun50i "${params[@]}"
     else
-        make -f makefile.libretro clean
-        make -f makefile.libretro "${params[@]}"
+        make clean
+        make "${params[@]}"
     fi
-    md_ret_require="$md_build/fbalpha_libretro.so"
+    md_ret_require="$md_build/src/burner/libretro/fbalpha_libretro.so"
 }
 
 function install_lr-fbalpha() {
     md_ret_files=(
         'fba.chm'
-        'fbalpha_libretro.so'
+        'src/burner/libretro/fbalpha_libretro.so'
         'gamelist.txt'
         'whatsnew.html'
         'preset-example.zip'
@@ -91,6 +92,9 @@ function configure_lr-fbalpha() {
     addEmulator 0 "$md_id-sms" "mastersystem" "$md_inst/fbalpha_libretro.so --subsystem sms"
     addEmulator 0 "$md_id-md" "megadrive" "$md_inst/fbalpha_libretro.so --subsystem md"
     addEmulator 0 "$md_id-sg1k" "sg-1000" "$md_inst/fbalpha_libretro.so --subsystem sg1k"
+    addEmulator 0 "$md_id-cv" "coleco" "$md_inst/fbalpha_libretro.so --subsystem cv"
+    addEmulator 0 "$md_id-msx" "msx" "$md_inst/fbalpha_libretro.so --subsystem msx"
+    addEmulator 0 "$md_id-spec" "zxspectrum" "$md_inst/fbalpha_libretro.so --subsystem spec"
 
     addSystem "arcade"
     addSystem "neogeo"
@@ -101,4 +105,7 @@ function configure_lr-fbalpha() {
     addSystem "mastersystem"
     addSystem "megadrive"
     addSystem "sg-1000"
+    addSystem "coleco"
+    addSystem "msx"
+    addSystem "zxspectrum"
 }
