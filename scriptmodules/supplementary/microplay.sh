@@ -26,6 +26,7 @@ function gui_microplay() {
             1 "update mpcore-nxt base"
             2 "reset BG-Music to default"
             3 "update OS"
+            4 "activate ES-Systems fullview"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -90,6 +91,13 @@ function gui_microplay() {
 				#update OS
 				apt-get update && apt-get upgrade -y
                 printMsgs "dialog" "OS updated\n\nRestart System to apply."
+                ;;
+            4)
+				#es_systems full list
+				mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/Full/." "/etc/emulationstation"
+				chmod 755 "/etc/emulationstation/es_systems.cfg"
+                printMsgs "dialog" "ES-Systems list updated\n\nRestart System to apply."
                 ;;
         esac
     done
