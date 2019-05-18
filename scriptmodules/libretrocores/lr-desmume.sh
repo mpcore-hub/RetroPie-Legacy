@@ -30,7 +30,7 @@ function build_lr-desmume() {
     cd desmume/src/frontend/libretro
     if isPlatform "sun8i"; then
         make clean
-        make platform=classic_armv7_a7 ARCH=arm
+        make platform=unixclassic_armv7_a7
     elif isPlatform "sun50i"; then
         make clean
         make platform=sun50i
