@@ -28,6 +28,7 @@ function sources_lr-fbalpha() {
 }
 
 function build_lr-fbalpha() {
+    rpSwap on 1200
     cd src/burner/libretro
     local params=()
     if isPlatform "sun8i"; then
@@ -40,6 +41,7 @@ function build_lr-fbalpha() {
         make clean
         make
     fi
+    rpSwap off
     md_ret_require="$md_build/src/burner/libretro/fbalpha_libretro.so"
 }
 
