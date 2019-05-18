@@ -43,16 +43,7 @@ function build_amiberry() {
     if isPlatform "rpi" && ! isPlatform "kms"; then
         amiberry_bin="$__platform-sdl1"
         amiberry_platform="$__platform"
-    elif isPlatform "odroid-xu"; then
-        amiberry_bin="xu4"
-        amiberry_platform="xu4"
-    elif isPlatform "tinker"; then
-        amiberry_bin="tinker"
-        amiberry_platform="tinker"
-    elif isPlatform "vero4k"; then
-        amiberry_bin="vero4k"
-        amiberry_platform="vero4k"
-    elif isPlatform "H3-mali"; then
+    elif isPlatform "sun8i"; then
         amiberry_bin="orangepi-pc"
         amiberry_platform="orangepi-pc"
     fi
@@ -67,13 +58,7 @@ function install_amiberry() {
     local amiberry_bin="$__platform-sdl2"
     if isPlatform "rpi" && ! isPlatform "kms"; then
         amiberry_bin="$__platform-sdl1"
-    elif isPlatform "odroid-xu"; then
-        amiberry_bin="xu4"
-    elif isPlatform "tinker"; then
-        amiberry_bin="tinker"
-    elif isPlatform "vero4k"; then
-        amiberry_bin="vero4k"
-    elif isPlatform "H3-mali"; then
+    elif isPlatform "sun8i"; then
         amiberry_bin="orangepi-pc"
         
     fi
