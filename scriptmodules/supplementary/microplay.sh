@@ -58,12 +58,16 @@ function gui_microplay() {
 				chmod 755 "/etc/emulationstation/es_systems.cfg"
 				#install Emulationstation system logo
 				mv -f "/opt/retropie/supplementary/emulationstation/resources/splash.svg" "/opt/retropie/supplementary/emulationstation/resources/splash.svg.bkup"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Splashscreen/." "/opt/retropie/supplementary/emulationstation/resources"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Splashscreen/splash.svg" "/opt/retropie/supplementary/emulationstation/resources/splash.svg"
 				chmod 755 "/opt/retropie/supplementary/emulationstation/resources/splash.svg"
 				#install ES Audio-Fix
 				mv -f "/opt/retropie/configs/all/emulationstation/es_settings.cfg" "/opt/retropie/configs/all/emulationstation/es_settings.cfg.bkup"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Audiofix/." "/opt/retropie/configs/all/emulationstation/"
 				chmod 755 "/opt/retropie/configs/all/emulationstation/es_settings.cfg"
+				#install BGM-Script cfg in Autostart
+				mv -f "/opt/retropie/configs/all/autostart.sh" "/opt/retropie/configs/all/autostart.sh.bkup"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/BGM/autostart.sh" "/opt/retropie/configs/all/autostart.sh"
+				chmod 755 "/opt/retropie/configs/all/autostart.sh"
 				#copy boot and bios files
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/boot/." "/boot"
 				#install motd logo file
