@@ -30,6 +30,25 @@ function sources_lr-fbalpha() {
 function build_lr-fbalpha() {
     cd src/burner/libretro
     local params=()
+    isPlatform "arm" && params+=(USE_CYCLONE=1)
+    isPlatform "neon" && params+=(HAVE_NEON=1)
+    isPlatform "x86" && isPlatform "64bit" && params+=(USE_X64_DRC=1)
+    if isPlatform "sun8i"; then
+        make clean
+        make "${params[@]}"
+    elif isPlatform "sun50i"; then
+        make clean
+        make "${params[@]}"
+    else
+        make clean
+        make "${params[@]}"
+    fi
+    md_ret_require="$md_build/src/burner/libretro/fbalpha_libretro.so"
+}
+
+function build_lr-fbalpha() {
+    cd src/burner/libretro
+    local params=()
     if isPlatform "sun8i"; then
         make clean
         make platform=classic_armv7_a7 ARCH=arm"
