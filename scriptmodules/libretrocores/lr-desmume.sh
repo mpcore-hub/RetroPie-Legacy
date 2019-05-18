@@ -29,14 +29,14 @@ function sources_lr-desmume() {
 function build_lr-desmume() {
     cd desmume/src/frontend/libretro
     if isPlatform "sun8i"; then
-        make clean
-        make platform=unixarmvhardfloat
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=armvhardfloat
     elif isPlatform "sun50i"; then
-        make clean
-        make platform=sun50i
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro platform=armvhardfloat
     else
-        make clean
-        make
+        make -f Makefile.libretro clean
+        make -f Makefile.libretro
     fi
     md_ret_require="$md_build/desmume/src/frontend/libretro/desmume_libretro.so"
 }
