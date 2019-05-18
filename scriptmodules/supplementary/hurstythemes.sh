@@ -347,7 +347,7 @@ function spin_themes() {
         'RetroHursty69 BOrchidSpin'	
         'RetroHursty69 BowserSpin'
         'RetroHursty69 BubbleBobbleSpin'
-		'RetroHursty69 CapcomColorSpin'
+        'RetroHursty69 CapcomColorSpin'
         'RetroHursty69 CaptainAmericaSpin'
         'RetroHursty69 CharizardSpin'
         'RetroHursty69 ChunLiSpin'
@@ -685,9 +685,9 @@ function 5x4_themes() {
 
 function vertical_themes() {
     local themes=(
+        'RetroHursty69 CapcomColorVertical'
         'RetroHursty69 vertical_arcade'
         'RetroHursty69 vertical_limit_verticaltheme'
-		'RetroHursty69 CapcomColorVertical'
     )
     while true; do
         local theme
@@ -753,7 +753,7 @@ function chromeyblue_themes() {
         'RetroHursty69 AsteroidsBlue'
         'RetroHursty69 AstroBoyBlue'
         'RetroHursty69 BatmanBlue'
-		'RetroHursty69 bluesteel'
+        'RetroHursty69 bluesteel'
         'RetroHursty69 blueprism'
         'RetroHursty69 bluesmooth'
         'RetroHursty69 BombermanBlue'
@@ -1375,4 +1375,3 @@ function hurstypicks_themes() {
         esac
     done
 }
-
