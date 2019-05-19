@@ -34,8 +34,8 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-				#mpcore-nxt base			
-				#remove old System
+				#mpcore-nxt base v1.3			
+				#remove old System for upgrade
                 rm -rf "$datadir/retropiemenu/icons"
 		        rm -rf "/home/pi/RetrOrangePi"
 		        rm -rf "/home/pi/RetroPie/retropiemenu/RetrOrangePi"
