@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -21,9 +24,9 @@ function depends_solarus() {
 
 function sources_solarus() {
     downloadAndExtract "http://www.solarus-games.org/downloads/solarus/solarus-1.4.5-src.tar.gz" "$md_build" --strip-components 1
-    downloadAndExtract "http://www.zelda-solarus.com/downloads/zsdx/zsdx-1.10.3.tar.gz" "$md_build"
-    downloadAndExtract "http://www.zelda-solarus.com/downloads/zsxd/zsxd-1.10.3.tar.gz" "$md_build"
-    downloadAndExtract "http://www.zelda-solarus.com/downloads/zelda-roth-se/zelda-roth-se-1.0.8.tar.gz" "$md_build"
+    downloadAndExtract "https://gitlab.com/solarus-games/zsdx/-/archive/zsdx-1.10.3/zsdx-zsdx-1.10.3.tar.gz" "$md_build"
+    downloadAndExtract "https://gitlab.com/solarus-games/zsxd/-/archive/v1.10.3/zsxd-v1.10.3.tar.gz" "$md_build"
+    downloadAndExtract "https://gitlab.com/solarus-games/zelda-roth-se/-/archive/v1.0.8/zelda-roth-se-v1.0.8.tar.gz" "$md_build"
 }
 
 function build_solarus() {
@@ -31,31 +34,31 @@ function build_solarus() {
     cd build
     cmake .. -DCMAKE_INSTALL_PREFIX="$md_inst"
     make
-    cd ../zsdx-1.10.3
+    cd ../zsdx-zsdx-1.10.3
     cmake . -DCMAKE_INSTALL_PREFIX="$md_inst"
     make
-    cd ../zsxd-1.10.3
-    cmake . -DCMAKE_INSTALL_PREFIX="$md_inst"
+    cd ../zsxd-v1.10.3/build
+    cmake .. -DCMAKE_INSTALL_PREFIX="$md_inst"
     make
-    cd ../zelda-roth-se-1.0.8
+    cd ../../zelda-roth-se-v1.0.8
     cmake . -DCMAKE_INSTALL_PREFIX="$md_inst"
     make
     md_ret_require=(
         "$md_build/build/solarus_run"
-        "$md_build/zsdx-1.10.3/data.solarus"
-        "$md_build/zsxd-1.10.3/data.solarus"
-        "$md_build/zelda-roth-se-1.0.8/data.solarus"
+        "$md_build/zsdx-zsdx-1.10.3/data.solarus"
+        "$md_build/zsxd-v1.10.3/build/data.solarus"
+        "$md_build/zelda-roth-se-v1.0.8/data.solarus"
     )
 }
 
 function install_solarus() {
     cd build
     make install
-    cd ../zsdx-1.10.3/
+    cd ../zsdx-zsdx-1.10.3/
     make install
-    cd ../zsxd-1.10.3/
+    cd ../zsxd-v1.10.3/build/
     make install
-    cd ../zelda-roth-se-1.0.8/
+    cd ../../zelda-roth-se-v1.0.8/
     make install
 }
 
