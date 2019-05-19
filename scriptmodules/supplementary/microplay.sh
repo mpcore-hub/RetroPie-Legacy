@@ -36,9 +36,10 @@ function gui_microplay() {
             1)
 				#mpcore-nxt base v1.3	
 				echo "install & update mpcore-nxt base"
-				echo "*"
-				echo "**"
-				echo "***"
+				echo "#################################"
+				echo "*check the packages"
+				echo "*starting the installation"
+				echo "#################################"
 				#remove old System for upgrade
 				echo "remove old System for upgrade"
                 rm -rf "$datadir/retropiemenu/icons"
@@ -105,6 +106,7 @@ function gui_microplay() {
                 ;;
             2)
 				#set BGM to default
+				echo "set BGM to default"
                 rm -r /home/pi/RetroPie/music/*
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/music/." "/home/pi/RetroPie/music"
                 chown -cR pi:pi "/home/pi/RetroPie/music"
@@ -113,11 +115,13 @@ function gui_microplay() {
                 ;;
             3)
 				#update OS
+				echo "update OS"
 				apt-get update && apt-get upgrade -y
                 printMsgs "dialog" "OS updated\n\nRestart System to apply."
                 ;;
             4)
-				#es_systems full list
+				#install es_systems full list
+				echo "install es_systems full list"
 				mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/Full/." "/etc/emulationstation"
 				chmod 755 "/etc/emulationstation/es_systems.cfg"
