@@ -44,7 +44,8 @@ function gui_microplay() {
 				echo "remove old System for upgrade"
                 rm -rf "$datadir/retropiemenu/icons"
 		        rm -rf "/home/pi/RetrOrangePi"
-		        rm -rf "/home/pi/RetroPie/retropiemenu/RetrOrangePi"
+		        rm -rf "/etc/splash-full.png"
+		        rm -rf "/etc/splash-slim.png"
 				#install retropiemenu iconset
 				echo "install retropiemenu iconset"
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
