@@ -34,7 +34,7 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-				#mpcore-nxt base v1.3	
+				#mpcore-nxt base v1.4	
 				echo "install & update mpcore-nxt base"
 				echo "#################################"
 				echo "*check the packages"
@@ -64,6 +64,10 @@ function gui_microplay() {
 				echo "#install Splashscreens images and sounds"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/splashscreens/." "/home/pi/RetroPie/splashscreens"
 				chmod 755 /home/pi/RetroPie/splashscreens/*
+				#install Splashscreen list
+				echo "#install Splashscreen list"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/splashscreenlist/splashscreen.list" "/etc/splashscreen.list"
+				chmod 755 "/etc/splashscreen.list"
 				#install update and backup es-systems config
 				echo "install update and backup es-systems config"
 				mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
