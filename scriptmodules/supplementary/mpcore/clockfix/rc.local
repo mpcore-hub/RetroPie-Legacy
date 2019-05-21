@@ -1,0 +1,21 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+if [ -b "/dev/sda1" ]; then
+sudo mount /dev/sda1 /home/pi/RetroPie -o rw,user,exec,umask=0000,uid=pi,gid=pi
+fi
+
+echo 1296000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+
+exit 0
+
