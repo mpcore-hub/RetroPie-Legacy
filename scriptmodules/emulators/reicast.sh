@@ -32,14 +32,14 @@ function sources_reicast() {
 
 function build_reicast() {
     cd shell/linux
-        make platform=sun8i clean
-        make platform=sun8i
+        make -j2 platform=sun8i clean
+        make -j2 platform=sun8i
         md_ret_require="$md_build/shell/linux/reicast.elf"
 }
 
 function install_reicast() {
     cd shell/linux
-        make PREFIX="$md_inst" platform=sun8i install
+        make -j2 PREFIX="$md_inst" platform=sun8i install
     md_ret_files=(
         'LICENSE'
         'README.md'
