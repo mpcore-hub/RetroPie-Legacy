@@ -27,19 +27,34 @@ function depends_reicast() {
 
 function sources_reicast() {
     gitPullOrClone "$md_build" https://github.com/mpcore-hub/reicast-emulator.git
-#    applyPatch "$md_data/sun8i.patch"
+#    isPlatform "sun8i" && applyPatch "$md_data/sun8i.patch"
+#    isPlatform "sun50i" && applyPatch "$md_data/sun50i.patch"
 }
 
 function build_reicast() {
     cd shell/linux
+    if isPlatform "sun8i"; then
         make -j2 platform=sun8i clean
         make -j2 platform=sun8i
+    elif isPlatform "sun50i"; then
+        make -j2 platform=sun50i clean
+        make -j2 platform=sun50i
+    else
+        make clean
+        make
+    fi
         md_ret_require="$md_build/shell/linux/reicast.elf"
 }
 
 function install_reicast() {
     cd shell/linux
+    if isPlatform "sun8i"; then
         make -j2 platform=sun8i PREFIX="$md_inst" install
+    elif isPlatform "sun50i"; then
+        make -j2 platform=sun50i PREFIX="$md_inst" install  
+    else 
+        make PREFIX="$md_inst" install
+    fi
     md_ret_files=(
         'LICENSE'
         'README.md'
@@ -83,7 +98,7 @@ _EOF_
     rm -f "$romdir/dreamcast/systemManager.cdi"
 
     # add system
-    # possible audio backends: alsa, oss, omx
+    # possible audio backends: alsa, oss
     if isPlatform "sun8i"; then
         addEmulator 1 "${md_id}-audio-oss" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
         addEmulator 0 "${md_id}-audio-alsa" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
