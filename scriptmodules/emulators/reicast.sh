@@ -39,7 +39,7 @@ function build_reicast() {
 
 function install_reicast() {
     cd shell/linux
-        make -j2 PREFIX="$md_inst" platform=sun8i install
+        make -j2 platform=sun8i PREFIX="$md_inst" install
     md_ret_files=(
         'LICENSE'
         'README.md'
@@ -84,17 +84,18 @@ _EOF_
 
     # add system
     # possible audio backends: alsa, oss, omx
-    if isPlatform "rpi"; then
-        addEmulator 1 "${md_id}-audio-omx" "dreamcast" "CON:$md_inst/bin/reicast.sh omx %ROM%"
-        addEmulator 0 "${md_id}-audio-oss" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
-    elif isPlatform "vero4k"; then
-        addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
+    if isPlatform "sun8i"; then
+        addEmulator 1 "${md_id}-audio-oss" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
+        addEmulator 0 "${md_id}-audio-alsa" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
+    elif isPlatform "sun50i"; then
+        addEmulator 1 "${md_id}-audio-oss" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
+        addEmulator 0 "${md_id}-audio-alsa" "dreamcast" "CON:$md_inst/bin/reicast.sh alsa %ROM%"
     else
         addEmulator 1 "$md_id" "dreamcast" "CON:$md_inst/bin/reicast.sh oss %ROM%"
     fi
     addSystem "dreamcast"
 
-    addAutoConf reicast_input 1
+    addAutoConf reicast_input 0
 }
 
 function input_reicast() {
