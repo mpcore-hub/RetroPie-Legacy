@@ -110,7 +110,12 @@ function gui_microplay() {
 		echo "install boost and clock fix"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/clockfix/cpufrequtils" "/etc/default/cpufrequtils"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/clockfix/rc.local" "/etc/rc.local"
-		chmod 755 "/etc/rc.local"				
+		chmod 755 "/etc/rc.local"	
+			#install Safe-Button-Scripts
+		echo "install Safe-Button-Scripts"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
+		chown -cR root:crontab "/var/spool/cron/crontabs/root"
+		chmod 644 "/var/spool/cron/crontabs/root"
 			#install motd logo file
 		echo "install motd logo file"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/motd_logo/." "/etc/update-motd.d"
@@ -174,11 +179,6 @@ function gui_microplay() {
 			#update motd logo file
 		echo "update motd logo file"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/motd_logo/." "/etc/update-motd.d"
-			#install Safe-Button-Script
-		echo "install Safe-Button-Script"
-		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
-		chown -cR root:crontab "/var/spool/cron/crontabs/root"
-		chmod 644 "/var/spool/cron/crontabs/root"
 			#update system UpdateSource
 		echo "update system UpdateSource"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/system_source/." "/etc/apt"
