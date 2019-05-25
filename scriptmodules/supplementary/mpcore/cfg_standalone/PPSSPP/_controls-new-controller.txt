@@ -1,0 +1,1 @@
+copy controls.ini settings to gameconfigs to play with same settings
