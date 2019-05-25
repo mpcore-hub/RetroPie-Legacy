@@ -110,7 +110,10 @@ function gui_microplay() {
 		echo "install boost and clock fix"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/clockfix/cpufrequtils" "/etc/default/cpufrequtils"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/clockfix/rc.local" "/etc/rc.local"
-		chmod 755 "/etc/rc.local"	
+		chmod 755 "/etc/rc.local"
+			#install GPIO-Base
+		echo "install GPIO-Base"
+		python /home/pi/RetroPie/retropiemenu/Microplay/GPIO/orangepi_PC_gpio_pyH3-master/setup.py install
 			#install Safe-Button-Scripts
 		echo "install Safe-Button-Scripts"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
