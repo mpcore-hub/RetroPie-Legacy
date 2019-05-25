@@ -44,6 +44,7 @@ function gui_microplay() {
 		echo "*check the packages"
 		echo "*starting the installation"
 		echo "#################################"
+		sleep 5
 			#remove old System for upgrade
 		echo "remove old System for upgrade"
                 rm -rf "$datadir/retropiemenu/icons"
@@ -116,6 +117,7 @@ function gui_microplay() {
 		pushd /home/pi/RetroPie/retropiemenu/Microplay/GPIO/orangepi_PC_gpio_pyH3-master
 		sudo python setup.py install
 		popd
+		sleep 5
 			#install Safe-Button-Scripts
 		echo "install Safe-Button-Scripts"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
@@ -150,6 +152,7 @@ function gui_microplay() {
 		echo "*check the packages"
 		echo "*starting the update"
 		echo "#################################"
+		sleep 5
 			#remove old files for upgrade
 		echo "remove old files for upgrade"
 		rm -rf "$datadir/retropiemenu/icons"
