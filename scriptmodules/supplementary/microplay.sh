@@ -36,7 +36,7 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-			#mpcore-nxt base install v1.41
+			#mpcore-nxt base install v1.42
 		echo "install & update mpcore-nxt base"
 		echo "#################################"
 		echo "*check the packages"
@@ -87,6 +87,15 @@ function gui_microplay() {
 		mv -f "/opt/retropie/configs/all/emulationstation/es_settings.cfg" "/opt/retropie/configs/all/emulationstation/es_settings.cfg.bkup"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ES-Audiofix/." "/opt/retropie/configs/all/emulationstation/"
 		chmod 755 "/opt/retropie/configs/all/emulationstation/es_settings.cfg"
+			#install retroarch configs
+		echo "install retroarch configs"
+		mv -f "/opt/retropie/configs/all/retroarch.cfg" "/opt/retropie/configs/all/retroarch.bkup"
+		mv -f "/opt/retropie/configs/all/retroarch-core-options.cfg" "/opt/retropie/configs/all/retroarch-core-options.bkup"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_retroarch/configs/." "/opt/retropie/configs"
+			#install standalone configs
+		echo "install standalone configs"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_standalone/Dreamcast/." "/opt/retropie/configs/dreamcast"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_standalone/PPSSPP/." "/opt/retropie/configs/psp/PSP/SYSTEM"
 			#install BGM-Script in Autostart
 		echo "install BGM-Script in Autostart"
 		mv -f "/opt/retropie/configs/all/autostart.sh" "/opt/retropie/configs/all/autostart.sh.bkup"
@@ -117,7 +126,7 @@ function gui_microplay() {
 		printMsgs "dialog" "mpcore-nxt base installed\n\nRestart System to apply."
 		;;
             2)
-			#mpcore-nxt base update v1.41
+			#mpcore-nxt base update v1.42
 		echo "update mpcore-nxt base"
 		echo "#################################"
 		echo "*check the packages"
