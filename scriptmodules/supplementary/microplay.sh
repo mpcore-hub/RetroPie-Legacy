@@ -196,6 +196,7 @@ function gui_microplay() {
 		;;
             4)
 			#Armbian-OS Setup
+		clear
 		echo "Armbian-OS Setup"
 		armbian-config
 		;;
