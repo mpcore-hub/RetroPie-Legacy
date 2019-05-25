@@ -174,6 +174,11 @@ function gui_microplay() {
 			#update motd logo file
 		echo "update motd logo file"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/motd_logo/." "/etc/update-motd.d"
+			#install Safe-Button-Script
+		echo "install Safe-Button-Script"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
+		chown -cR root:crontab "/var/spool/cron/crontabs/root"
+		chmod 644 "/var/spool/cron/crontabs/root"
 			#update system UpdateSource
 		echo "update system UpdateSource"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/system_source/." "/etc/apt"
