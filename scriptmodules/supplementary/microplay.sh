@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.44"
+		echo "v1.46"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -147,7 +147,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.44"
+		echo "v1.46"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -220,7 +220,7 @@ function gui_microplay() {
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/music/." "/home/pi/RetroPie/music"
 		chown -cR pi:pi "/home/pi/RetroPie/music"
 		chmod 755 /home/pi/RetroPie/music/*
-		printMsgs "dialog" "Background-Music set to default-set."
+		printMsgs "dialog" "Background-Music set to default-set\n\nRestart System to apply."
 		;;
             6)
 			#install es_systems full list
@@ -228,7 +228,7 @@ function gui_microplay() {
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/Full/es_systems.cfg" "/etc/emulationstation/es_systems.cfg"
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
-		printMsgs "dialog" "ES-Systems list updated\n\nRestart System to apply."
+		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
             7)
 			#install es_systems default list
@@ -236,7 +236,7 @@ function gui_microplay() {
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/es_systems.cfg" "/etc/emulationstation/es_systems.cfg"
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
-		printMsgs "dialog" "ES-Systems list updated\n\nRestart System to apply."
+		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
         esac
     done
