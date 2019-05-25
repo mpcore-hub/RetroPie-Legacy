@@ -117,6 +117,10 @@ function gui_microplay() {
 			#install system UpdateSource
 		echo "install system UpdateSource"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/system_source/." "/etc/apt"
+			#set FTP-Hostname
+		echo "set FTP-Hostname"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/ftp_showname/." "/etc/"
+		chmod 644 "/etc/hostname"
 			#change access
 		echo "change access"
 		chown -cR pi:pi "/etc/emulationstation"
