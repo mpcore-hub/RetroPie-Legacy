@@ -192,7 +192,7 @@ function gui_microplay() {
             4)
 			#Armbian-OS Setup
 		echo "Armbian-OS Setup"
-		local cmd armbian-config
+		cmd sudo armbian-config
 		;;
             5)
 			#set BGM to default
