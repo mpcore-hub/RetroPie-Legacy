@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.43"
+		echo "v1.44"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -127,6 +127,7 @@ function gui_microplay() {
 		chown -cR pi:pi "/opt/retropie"
 		chown -cR pi:pi "/home/pi/RetroPie"
 		chown -cR pi:pi "/home/pi/RetroPie-Setup"
+		yes microplay | passwd root
 			#finish
 		echo "mpcore-nxt installation successful"
 		printMsgs "dialog" "mpcore-nxt base installed\n\nRestart System to apply."
@@ -134,7 +135,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.43"
+		echo "v1.44"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
