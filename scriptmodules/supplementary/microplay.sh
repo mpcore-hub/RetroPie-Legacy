@@ -113,7 +113,9 @@ function gui_microplay() {
 		chmod 755 "/etc/rc.local"
 			#install GPIO-Base
 		echo "install GPIO-Base"
-		python /home/pi/RetroPie/retropiemenu/Microplay/GPIO/orangepi_PC_gpio_pyH3-master/setup.py install
+		pushd /home/pi/RetroPie/retropiemenu/Microplay/GPIO/orangepi_PC_gpio_pyH3-master
+		sudo python setup.py install
+		popd
 			#install Safe-Button-Scripts
 		echo "install Safe-Button-Scripts"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Safebuttons/crontabs/root" "/var/spool/cron/crontabs"
