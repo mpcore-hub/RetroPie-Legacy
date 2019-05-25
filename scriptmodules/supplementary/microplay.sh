@@ -25,10 +25,11 @@ function gui_microplay() {
         local options=(
             1 "install mpcore-nxt base"		
             2 "update mpcore-nxt base"
-            3 "reset BGM to default"
-            4 "update OS"
-            5 "set ES-Systems full list"
-            6 "set ES-Systems default list"
+            3 "Armbian-OS Update"
+            4 "Armbian-OS Setup"
+            5 "set default Background-Music"
+            6 "ES-Systems show full list"
+            7 "ES-Systems show default list"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -36,8 +37,9 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-			#mpcore-nxt base install v1.42
+			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
+		echo "v1.43"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -89,8 +91,8 @@ function gui_microplay() {
 		chmod 755 "/opt/retropie/configs/all/emulationstation/es_settings.cfg"
 			#install retroarch configs
 		echo "install retroarch configs"
-		mv -f "/opt/retropie/configs/all/retroarch.cfg" "/opt/retropie/configs/all/retroarch.bkup"
-		mv -f "/opt/retropie/configs/all/retroarch-core-options.cfg" "/opt/retropie/configs/all/retroarch-core-options.bkup"
+		mv -f "/opt/retropie/configs/all/retroarch.cfg" "/opt/retropie/configs/all/retroarch.cfg.bkup"
+		mv -f "/opt/retropie/configs/all/retroarch-core-options.cfg" "/opt/retropie/configs/all/retroarch-core-options.cfg.bkup"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_retroarch/configs/." "/opt/retropie/configs"
 			#install standalone configs
 		echo "install standalone configs"
@@ -126,8 +128,9 @@ function gui_microplay() {
 		printMsgs "dialog" "mpcore-nxt base installed\n\nRestart System to apply."
 		;;
             2)
-			#mpcore-nxt base update v1.42
+			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
+		echo "v1.43"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -181,6 +184,17 @@ function gui_microplay() {
 		printMsgs "dialog" "mpcore-nxt base updated\n\nRestart System to apply."
 		;;
             3)
+			#Armbian-OS Update
+		echo "Armbian-OS Update"
+		apt-get update && apt-get upgrade -y
+		printMsgs "dialog" "OS updated\n\nRestart System to apply."
+		;;
+            4)
+			#Armbian-OS Setup
+		echo "Armbian-OS Setup"
+		armbian-config
+		;;
+            5)
 			#set BGM to default
 		echo "set BGM to default"
 		rm -r /home/pi/RetroPie/music/*
@@ -189,13 +203,7 @@ function gui_microplay() {
 		chmod 755 /home/pi/RetroPie/music/*
 		printMsgs "dialog" "Background-Music set to default-set."
 		;;
-            4)
-			#update OS
-		echo "update OS"
-		apt-get update && apt-get upgrade -y
-		printMsgs "dialog" "OS updated\n\nRestart System to apply."
-		;;
-            5)
+            6)
 			#install es_systems full list
 		echo "install es_systems full list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -203,7 +211,7 @@ function gui_microplay() {
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart System to apply."
 		;;
-            6)
+            7)
 			#install es_systems default list
 		echo "install es_systems default list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
