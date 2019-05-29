@@ -120,6 +120,8 @@ function gui_esthemes() {
         'mrharias superdisplay'
 	'retr0rangepi cosmos-ropi'
         'coinjunkie synthwave'
+        'nickearl retrowave'
+        'nickearl retrowave_4_3'
         'Retro-Arena dedsimple'
         'Retro-Arena ghc'
         'Retro-Arena greatest-hits'
