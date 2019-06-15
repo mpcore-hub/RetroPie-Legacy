@@ -35,8 +35,10 @@ function sources_reicast() {
 function build_reicast() {
     cd shell/linux
     if isPlatform "sun8i"; then
-        make -j2 platform=sun8i clean
-        make -j2 platform=sun8i
+        make -j2 platform=sun8isdl clean
+        make -j2 platform=sun8isdl
+        #make -j2 platform=sun8i clean
+        #make -j2 platform=sun8i
     elif isPlatform "sun50i"; then
         make -j2 platform=sun50i clean
         make -j2 platform=sun50i
@@ -50,7 +52,8 @@ function build_reicast() {
 function install_reicast() {
     cd shell/linux
     if isPlatform "sun8i"; then
-        make -j2 platform=sun8i PREFIX="$md_inst" install
+        make -j2 platform=sun8isdl PREFIX="$md_inst" install
+        #make -j2 platform=sun8i PREFIX="$md_inst" install
     elif isPlatform "sun50i"; then
         make -j2 platform=sun50i PREFIX="$md_inst" install  
     else 
