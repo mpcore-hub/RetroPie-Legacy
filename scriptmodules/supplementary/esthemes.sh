@@ -146,6 +146,7 @@ function gui_esthemes() {
         'lipebello strangerstuff'
         'lipebello spaceoddity'
         'lipebello swineapple'
+        'lipebello pdcomics'
         'waweedman pii-wii'
         'waweedman Blade-360'
         'waweedman Venom'
