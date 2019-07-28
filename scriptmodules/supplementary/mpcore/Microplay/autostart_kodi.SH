@@ -11,6 +11,8 @@ done
 pushd "/home/pi/RetroPie/retropiemenu/Microplay/kodi" 
 startx ./start-kodi.SH 
 popd
-startx 2>&1 >/dev/tty;/opt/retropie/supplementary/emulationstation/emulationstation.sh;stty echo
+startx 2>&1 >/dev/tty;
+python /home/pi/RetroPie/retropiemenu/Microplay/BGM/bgmusic.py & /opt/retropie/supplementary/emulationstation/emulationstation.sh;
+stty echo;sudo pkill -f bgmusic.py
 
 
