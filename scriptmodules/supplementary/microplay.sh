@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.47"
+		echo "v1.48"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -151,7 +151,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.47"
+		echo "v1.48"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
