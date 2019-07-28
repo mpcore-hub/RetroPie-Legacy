@@ -1,4 +1,4 @@
 #!/bin/bash
-pushd "/home/pi/Microplay/kodi" 
+pushd "/home/pi/RetroPie/retropiemenu/Microplay/kodi"  
 ./start-kodi.SH 
 popd
