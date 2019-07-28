@@ -197,6 +197,9 @@ function gui_microplay() {
 			#update system UpdateSource
 		echo "update system UpdateSource"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/system_source/." "/etc/apt"
+			#update kodi configs
+		echo "update kodi configs"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_retroarch/configs/ports/." "/opt/retropie/configs/ports"
 			#change access
 		echo "change access"
 		chown -cR pi:pi "/home/pi/Desktop"
