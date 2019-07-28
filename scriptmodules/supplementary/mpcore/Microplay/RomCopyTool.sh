@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# MPCORE RomCopyTool v1.0 
+# MPCORE RomCopyTool v1.01 
 # set permissions - chmod +x RomCopyTool.sh
 
 mainfunc() {
@@ -44,10 +44,10 @@ menufunc() {
 	rcmcmd=(dialog --keep-tite --no-shadow --cr-wrap --keep-window --menu "RomCopyTool Menu System (Insert USB Drive Now)" 22 101 16)
 
 	rcmoptions=(
-	1 "Create Rom-folders on USB"
+	1 "Create Romfolders on USB"
 	2 "Copy Roms from USB to PI"
 	3 "Backup your roms to USB"
-	4 "Restore Roms backup from USB"
+	4 "Restore Rombackup from USB"
 	99 "Reboot System"
 	100 "Exit"
 	)
@@ -59,7 +59,7 @@ do
 	case $rcmchoice in
                 1)
                         mountfunc
-			dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "Creating Rom-folder structure\n\n...Please wait" 5 40
+			dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "Creating Rom-folder library\n\n...Please wait" 5 40
 			sleep 4
 			ARRROMDIR=($(/bin/ls -1 /home/pi/RetroPie/roms))
 			/bin/mkdir -p /media/retropie/roms &>/dev/null
@@ -69,7 +69,7 @@ do
 				/bin/mkdir /media/retropie/roms/$romdir &>/dev/null
 			done
 			umountfunc
-			dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "Creation of rom folder structure is complete\n\nPlug the USB drive into your PC\n\nYou will see retropie/roms and retropie/BIOS\n\ncopy your roms and bios files to these locations and then reinsert and choose option 2" 10 80
+			dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "Rom-folders library is complete\n\nPlug the USB drive into your PC\n\nYou will see retropie/roms and retropie/BIOS\n\ncopy your roms and bios files to these locations and then reinsert and choose option 2" 10 80
 			sleep 12
 			mainfunc
 			;;
@@ -84,7 +84,7 @@ do
 			ARRROMSRC=(/media/retropie/roms/*/*)
 			ROMDST="/home/pi/RetroPie/roms/"
 			BIOSDST="/home/pi/RetroPie/BIOS/"
-			dialog --keep-tite --no-shadow --cr-wrap --title "Rom copy" --gauge "Copying rom files..." 15 80 < <(
+			dialog --keep-tite --no-shadow --cr-wrap --title "Rom copy" --gauge "Copying roms..." 15 80 < <(
 				nr=${#ARRROMSRC[*]};
 				ir=0
 				for fromsrc in "${ARRROMSRC[@]}"
@@ -108,7 +108,7 @@ EOF
 
                         ARRBIOSSRC=(/media/retropie/BIOS/*)
                         BIOSDST="/home/pi/RetroPie/BIOS/"
-                        dialog --keep-tite --no-shadow --cr-wrap --title "BIOS-Files copy" --gauge "Copying BIOS files..." 15 80 < <(
+                        dialog --keep-tite --no-shadow --cr-wrap --title "BIOS-Files copy" --gauge "Copying BIOS-Files..." 15 80 < <(
                                 nb=${#ARRBIOSSRC[*]};
                                 ib=0
 
@@ -177,7 +177,7 @@ EOF
 				mainfunc
 			else
 				umountfunc
-				dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "ERROR: Backup rom data does not exist on USB drive\n\n...Exiting" 10 80
+				dialog --keep-tite --no-shadow --cr-wrap --keep-window --infobox "ERROR: Backup Rom-Data does not exist on USB drive\n\n...Exiting" 10 80
 				sleep 4
 				mainfunc
 			fi
@@ -187,7 +187,7 @@ EOF
 			/usr/bin/sudo /sbin/reboot
 			;;
 		100)
-			echo "...Exit"
+			echo "...Exiting from Copy-Tool"
 			exit 0
 			;;
 	esac
