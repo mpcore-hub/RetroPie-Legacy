@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.46"
+		echo "v1.47"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -61,6 +61,9 @@ function gui_microplay() {
 			#install mpcore data
 		echo "install mpcore data"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
+			#update desktop data
+		echo "install desktop data"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/." "/home/pi/Desktop"
 			#install tekcommand_png runcommand images
 		echo "install tekcommand_png runcommand images"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
@@ -135,6 +138,7 @@ function gui_microplay() {
 		chmod 644 "/etc/hostname"
 			#change access
 		echo "change access"
+		chown -cR pi:pi "/home/pi/Desktop"
 		chown -cR pi:pi "/etc/emulationstation"
 		chown -cR pi:pi "/opt/retropie"
 		chown -cR pi:pi "/home/pi/RetroPie"
@@ -147,7 +151,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.46"
+		echo "v1.47"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -165,6 +169,9 @@ function gui_microplay() {
 			#update mpcore data
 		echo "update mpcore data"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
+			#update desktop data
+		echo "install desktop data"
+		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/." "/home/pi/Desktop"
 			#update tekcommand_png runcommand images
 		echo "update tekcommand_png runcommand images"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
@@ -192,6 +199,7 @@ function gui_microplay() {
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/system_source/." "/etc/apt"
 			#change access
 		echo "change access"
+		chown -cR pi:pi "/home/pi/Desktop"
 		chown -cR pi:pi "/etc/emulationstation"
 		chown -cR pi:pi "/opt/retropie"
 		chown -cR pi:pi "/home/pi/RetroPie"
