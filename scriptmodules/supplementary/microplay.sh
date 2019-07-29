@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.49"
+		echo "v1.50"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -58,6 +58,10 @@ function gui_microplay() {
 			#install desktop iconset
 		echo "install desktop iconset"
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
+			#install desktop taskpanel and links
+		echo "install desktop taskpanel and links"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
 			#install retropiemenu gamelist
 		echo "install retropiemenu gamelist"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
@@ -154,7 +158,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.49"
+		echo "v1.50"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -169,6 +173,10 @@ function gui_microplay() {
 			#install desktop iconset
 		echo "install desktop iconset"
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
+			#install desktop taskpanel and links
+		echo "install desktop taskpanel and links"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
 			#update retropiemenu gamelist
 		echo "update retropiemenu gamelist"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
