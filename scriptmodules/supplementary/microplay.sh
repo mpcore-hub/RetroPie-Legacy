@@ -60,8 +60,8 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
 			#install desktop taskpanel and links
 		echo "install desktop taskpanel and links"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop/"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel/"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
 			#install retropiemenu gamelist
 		echo "install retropiemenu gamelist"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
@@ -175,8 +175,8 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
 			#install desktop taskpanel and links
 		echo "install desktop taskpanel and links"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop/"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel/"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
 			#update retropiemenu gamelist
 		echo "update retropiemenu gamelist"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
