@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=EmulationStation
+Comment=
+Exec=killall xinit
+Icon=/home/pi/RetroPie/retropiemenu/icons2/emulationstation.png
+Path=
+Terminal=false
+StartupNotify=false
+Name[en_US.UTF-8]=Emulation Station

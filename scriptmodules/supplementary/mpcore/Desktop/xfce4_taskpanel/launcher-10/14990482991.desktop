@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AdvMAME
+Comment=
+Exec=/home/pi/RetroPie/retropiemenu/Microplay/Boot_to_AdvMENU.SH
+Icon=/home/pi/RetroPie/retropiemenu/icons2/mame.png
+Path=
+Terminal=false
+StartupNotify=false
+X-XFCE-Source=file:///home/pi/Desktop/AdvMAME.desktop

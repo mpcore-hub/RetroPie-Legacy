@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Retroarch
+Comment=Boot to Retroarch by default
+Exec=/home/pi/RetroPie/retropiemenu/Microplay/Boot_to_Retroarch.SH
+Icon=/home/pi/RetroPie/retropiemenu/icons2/retroarch.png
+Path=
+Terminal=false
+StartupNotify=false

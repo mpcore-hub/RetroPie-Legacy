@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Armbian
+Comment=Boot to Armbian Desktop by default
+Exec=/home/pi/RetroPie/retropiemenu/Microplay/Boot_to_Armbian.SH
+Icon=/home/pi/RetroPie/retropiemenu/icons2/armbian.png
+Path=
+Terminal=false
+StartupNotify=false
