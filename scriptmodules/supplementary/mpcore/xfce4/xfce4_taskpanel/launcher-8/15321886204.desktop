@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=AdvanceMENU
+Comment=Boot to AdvanceMenu by default
+Exec=/home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/Boot_to_AdvMENU.SH
+Icon=/home/pi/RetroPie/retropiemenu/icons2/mame.png
+Path=
+Terminal=false
+StartupNotify=false

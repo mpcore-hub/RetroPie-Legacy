@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Default boot to Kodi
+Comment=
+Exec=/home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/Boot_to_Kodi.SH
+Icon=/home/pi/RetroPie/retropiemenu/icons2/kodi.png
+Path=
+Terminal=false
+StartupNotify=false
