@@ -69,9 +69,6 @@ function gui_microplay() {
 			#install mpcore data
 		echo "install mpcore data"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
-			#update desktop data
-		echo "install desktop data"
-		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/." "/home/pi/Desktop/"
 			#install tekcommand_png runcommand images
 		echo "install tekcommand_png runcommand images"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
@@ -185,9 +182,6 @@ function gui_microplay() {
 			#update mpcore data
 		echo "update mpcore data"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Microplay/." "$datadir/retropiemenu/Microplay"
-			#update desktop data
-		echo "install desktop data"
-		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/." "/home/pi/Desktop"
 			#update tekcommand_png runcommand images
 		echo "update tekcommand_png runcommand images"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/tekcommand_png/." "/opt/retropie/"
