@@ -39,7 +39,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.50"
+		echo "v1.51"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -60,9 +60,9 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
 			#install desktop taskpanel and links
 		echo "install desktop taskpanel and links"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_conf/." "/home/pi/.config/xfce4/xfconf/xfce-perchannel-xml"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_conf/." "/home/pi/.config/xfce4/xfconf/xfce-perchannel-xml"
 			#install retropiemenu gamelist
 		echo "install retropiemenu gamelist"
                 cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
@@ -159,7 +159,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.50"
+		echo "v1.51"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -176,9 +176,9 @@ function gui_microplay() {
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_desktop" "$datadir/retropiemenu/icons2"
 			#install desktop taskpanel and links
 		echo "install desktop taskpanel and links"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_links/." "/home/pi/Desktop"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
-                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/Desktop/xfce4_conf/." "/home/pi/.config/xfce4/xfconf/xfce-perchannel-xml"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_links/." "/home/pi/Desktop"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_taskpanel/." "/home/pi/.config/xfce4/panel"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/xfce4/xfce4_conf/." "/home/pi/.config/xfce4/xfconf/xfce-perchannel-xml"
 			#update retropiemenu gamelist
 		echo "update retropiemenu gamelist"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu_gamelist/." "/opt/retropie/configs/all/emulationstation/gamelists/retropie"		
