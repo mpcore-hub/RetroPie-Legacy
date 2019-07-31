@@ -23,26 +23,26 @@ function depends_microplay() {
 function gui_microplay() {
     while true; do
         local options=(
-            1 "mpcore-nxt base installer"		
-            2 "mpcore-nxt base updater"
-            3 "Armbian-OS Update"
-            4 "Armbian-OS Setup"
-            5 "set default Background-Music"
-            6 "ES-Systems show full list"
-            7 "ES-Systems show default list"
-            20 "Autostart boot to Desktop"
-            21 "Autostart boot to Kodi"
-            22 "Autostart boot to ES (default)"
+            10 "mpcore-nxt base installer"		
+            11 "mpcore-nxt base updater"
+            20 "set default Background-Music"
+            21 "ES-Systems show full list"
+            22 "ES-Systems show default list"
+            30 "Armbian-OS Update"
+            31 "Armbian-OS Setup"
+            40 "Autostart boot to Desktop"
+            41 "Autostart boot to Kodi"
+            42 "Autostart boot to ES (default)"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
         default="$choice"
         [[ -z "$choice" ]] && break
         case "$choice" in
-            1)
+            10)
 			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
-		echo "v1.52"
+		echo "v1.53"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -156,10 +156,10 @@ function gui_microplay() {
 		echo "mpcore-nxt installation successful"
 		printMsgs "dialog" "mpcore-nxt base installed\n\nRestart System to apply."
 		;;
-            2)
+            11)
 			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
-		echo "v1.52"
+		echo "v1.53"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -225,19 +225,7 @@ function gui_microplay() {
 
 		printMsgs "dialog" "mpcore-nxt base updated\n\nRestart System to apply."
 		;;
-            3)
-			#Armbian-OS Update
-		echo "Armbian-OS Update"
-		apt-get update && apt-get upgrade -y
-		printMsgs "dialog" "OS updated\n\nRestart System to apply."
-		;;
-            4)
-			#Armbian-OS Setup
-		clear
-		echo "Armbian-OS Setup"
-		armbian-config
-		;;
-            5)
+            20)
 			#set BGM to default
 		echo "set BGM to default"
 		rm -r /home/pi/RetroPie/music/*
@@ -246,7 +234,7 @@ function gui_microplay() {
 		chmod 755 /home/pi/RetroPie/music/*
 		printMsgs "dialog" "Background-Music set to default-set\n\nRestart System to apply."
 		;;
-            6)
+            21)
 			#install es_systems full list
 		echo "install es_systems full list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -254,7 +242,7 @@ function gui_microplay() {
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
-            7)
+            22)
 			#install es_systems default list
 		echo "install es_systems default list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -262,7 +250,19 @@ function gui_microplay() {
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
-            20)
+            30)
+			#Armbian-OS Update
+		echo "Armbian-OS Update"
+		apt-get update && apt-get upgrade -y
+		printMsgs "dialog" "OS updated\n\nRestart System to apply."
+		;;
+            31)
+			#Armbian-OS Setup
+		clear
+		echo "Armbian-OS Setup"
+		armbian-config
+		;;
+            40)
 			#Autostart boot to Desktop
 		echo "set your Autostart to Desktop"
 		echo "Please wait"
@@ -271,7 +271,7 @@ function gui_microplay() {
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
 		printMsgs "dialog" "Now system will boot to Armbian Desktop by default."
 		;;
-            21)
+            41)
 			#Autostart boot to Kodi
 		echo "set your Autostart to Kodi"
 		echo "Please wait"
@@ -280,7 +280,7 @@ function gui_microplay() {
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
 		printMsgs "dialog" "Now system will boot to Kodi Media Center by default."
 		;;
-            22)
+            42)
 			#Autostart boot to ES
 		echo "set your Autostart to ES"
 		echo "Please wait"
