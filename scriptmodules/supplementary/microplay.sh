@@ -23,8 +23,8 @@ function depends_microplay() {
 function gui_microplay() {
     while true; do
         local options=(
-            1 "install mpcore-nxt base"		
-            2 "update mpcore-nxt base"
+            1 "mpcore-nxt base installer"		
+            2 "mpcore-nxt base updater"
             3 "Armbian-OS Update"
             4 "Armbian-OS Setup"
             5 "set default Background-Music"
@@ -40,7 +40,7 @@ function gui_microplay() {
         [[ -z "$choice" ]] && break
         case "$choice" in
             1)
-			#mpcore-nxt base install
+			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
 		echo "v1.52"
 		echo "#################################"
@@ -157,7 +157,7 @@ function gui_microplay() {
 		printMsgs "dialog" "mpcore-nxt base installed\n\nRestart System to apply."
 		;;
             2)
-			#mpcore-nxt base update
+			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
 		echo "v1.52"
 		echo "#################################"
@@ -269,8 +269,7 @@ function gui_microplay() {
 		sleep 1
 		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_desktop.SH /opt/retropie/configs/all/autostart.sh
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
-		echo "Now system will boot to Armbian Desktop by default."
-		sleep 2
+		printMsgs "dialog" "Now system will boot to Armbian Desktop by default."
 		;;
             21)
 			#Autostart boot to Kodi
@@ -279,8 +278,7 @@ function gui_microplay() {
 		sleep 1
 		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_kodi.SH /opt/retropie/configs/all/autostart.sh
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
-		echo "Now system will boot to Kodi Media Center by default."
-		sleep 2
+		printMsgs "dialog" "Now system will boot to Kodi Media Center by default."
 		;;
             22)
 			#Autostart boot to ES
@@ -289,8 +287,7 @@ function gui_microplay() {
 		sleep 1
 		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_emustation.SH /opt/retropie/configs/all/autostart.sh
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
-		echo "Now system will boot to EmulationStation by default."
-		sleep 2
+		printMsgs "dialog" "Now system will boot to EmulationStation by default."
 		;;
         esac
     done
