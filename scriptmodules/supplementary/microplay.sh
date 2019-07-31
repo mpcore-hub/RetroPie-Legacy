@@ -30,6 +30,9 @@ function gui_microplay() {
             5 "set default Background-Music"
             6 "ES-Systems show full list"
             7 "ES-Systems show default list"
+            20 "Autostart boot to Desktop"
+            21 "Autostart boot to Kodi"
+            22 "Autostart boot to ES (default)"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -39,7 +42,7 @@ function gui_microplay() {
             1)
 			#mpcore-nxt base install
 		echo "install & update mpcore-nxt base"
-		echo "v1.51"
+		echo "v1.52"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -156,7 +159,7 @@ function gui_microplay() {
             2)
 			#mpcore-nxt base update
 		echo "update mpcore-nxt base"
-		echo "v1.51"
+		echo "v1.52"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -258,6 +261,36 @@ function gui_microplay() {
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/es_systems.cfg" "/etc/emulationstation/es_systems.cfg"
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
+		;;
+            20)
+			#Autostart boot to Desktop
+		echo "set your Autostart to Desktop"
+		echo "Please wait"
+		sleep 1
+		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_desktop.SH /opt/retropie/configs/all/autostart.sh
+		chmod 755 "/opt/retropie/configs/all/autostart.sh"
+		echo "Now system will boot to Armbian Desktop by default."
+		sleep 2
+		;;
+            21)
+			#Autostart boot to Kodi
+		echo "set your Autostart to Kodi"
+		echo "Please wait"
+		sleep 1
+		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_kodi.SH /opt/retropie/configs/all/autostart.sh
+		chmod 755 "/opt/retropie/configs/all/autostart.sh"
+		echo "Now system will boot to Kodi Media Center by default."
+		sleep 2
+		;;
+            22)
+			#Autostart boot to ES
+		echo "set your Autostart to ES"
+		echo "Please wait"
+		sleep 1
+		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_emustation.SH /opt/retropie/configs/all/autostart.sh
+		chmod 755 "/opt/retropie/configs/all/autostart.sh"
+		echo "Now system will boot to EmulationStation by default."
+		sleep 2
 		;;
         esac
     done
