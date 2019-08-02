@@ -1,4 +1,4 @@
 #!/bin/bash
-pushd ~/home/pi/RetroPie-Setup/scriptmodules/supplementary/bezelproject/
-sudo ./bezelproject.sh
+pushd "/home/pi/RetroPie-Setup/scriptmodules/supplementary/bezelproject"  
+./bezelproject.sh 
 popd
