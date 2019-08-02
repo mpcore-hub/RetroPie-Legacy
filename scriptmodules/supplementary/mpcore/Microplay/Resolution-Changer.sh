@@ -25,8 +25,7 @@ menufunc() {
 	100 "Exit"
 	)
 
-#	rec_choices=$("${rec_cmd[@]}" "${rec_options[@]}" 2>&1 >/dev/tty)
-	rec_choices=$("${rec_cmd[@]}" "${rec_options[@]}")
+	rec_choices=$("${rec_cmd[@]}" "${rec_options[@]}" 2>&1 >/dev/tty)
 
 for rec_choice in $rec_choices
 do
