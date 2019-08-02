@@ -22,13 +22,18 @@
 		<image>./icons/Microplay.png</image>
 	</game>
 	<game>
-		<path>./Microplay/Bezelproject/</path>
-		<name>Bezelproject Settings</name>
+		<path>./Microplay/Microplay.sh</path>
+		<name>Microplay CoreBase Tool</name>
+		<image>./icons/Microplay.png</image>
+	</game>
+	<game>
+		<path>./Microplay/Bezelproject.sh</path>
+		<name>Bezelproject</name>
 		<image>./icons/MP/bezelproject.png</image>
 	</game>
 	<game>
-		<path>./Microplay/Board-Overlays/</path>
-		<name>Board Overlays</name>
+		<path>./Microplay/Board-Overlay-Changer.sh</path>
+		<name>Board-Overlay Changer</name>
 		<image>./icons/MP/Board-Overlays.png</image>
 	</game>
 	<game>
@@ -37,13 +42,13 @@
 		<image>./icons/MP/gpio.png</image>
 	</game>
 	<game>
-		<path>./Microplay/Reicast-Bugfix/</path>
-		<name>Reicast Bugfixes</name>
+		<path>./Microplay/Bugfixer.sh</path>
+		<name>Bugfixer Tool</name>
 		<image>./icons/MP/Reicast-Bugfix.png</image>
 	</game>
 	<game>
-		<path>./Microplay/Resolution/</path>
-		<name>Resolution Settings</name>
+		<path>./Microplay/Resolution-Changer.sh</path>
+		<name>Resolution Changer</name>
 		<image>./icons/MP/Resolution.png</image>
 	</game>
 	<game>
