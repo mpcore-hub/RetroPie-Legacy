@@ -1,4 +1,4 @@
-# GPIO Controller for RetrOrangePi
+# GPIO Controller for OrangePi
 
 ### Credits: duxingkei33/orangepi_PC_gpio_pyH3, olimex pyA20, recalbox/mk_arcade_joystick_rpi, gamecon_gpio_rpi, wiringPi
 ### ROPi port: ericktarzia, forked by pjmcardle to support 10 buttons per player vs. original 8
