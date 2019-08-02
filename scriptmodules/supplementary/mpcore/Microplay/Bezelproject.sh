@@ -1,3 +1,3 @@
 #!/bin/bash
-pushd "/home/pi/RetroPie-Setup/scriptmodules/supplementary/bezelproject"  
-sudo ./bezelproject.sh
+pushd ~/Microplay/
+sudo ./home/pi/RetroPie-Setup/scriptmodules/supplementary/bezelproject/bezelproject.sh
