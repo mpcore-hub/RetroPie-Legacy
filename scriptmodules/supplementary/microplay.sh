@@ -28,9 +28,9 @@ function gui_microplay() {
             20 "Enable Background-Music"
             21 "Disable Background-Music"
             22 "set default Background-Music"
-            23 "ES-Systems show full list"
-            24 "ES-Systems show default list"
-            25 "set default Controller config"
+            23 "set default Controller config"
+            24 "ES-Systems show full list"
+            25 "ES-Systems show default list"
             30 "Armbian-OS Update"
             31 "Armbian-OS Setup"
             40 "Autostart boot to Desktop"
@@ -256,6 +256,12 @@ function gui_microplay() {
 		printMsgs "dialog" "Background-Music set to default-set\n\nRestart System to apply."
 		;;
             23)
+			#set default Controller config
+		echo "set default Controller config"
+		rm "$configdir/all/emulationstation/es_input.cfg"
+		printMsgs "dialog" "Controller config set to default .\n\nRestart System to apply."
+		;;
+            24)
 			#install es_systems full list
 		echo "install es_systems full list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -263,19 +269,13 @@ function gui_microplay() {
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
-            24)
+            25)
 			#install es_systems default list
 		echo "install es_systems default list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/es_systems.cfg" "/etc/emulationstation/es_systems.cfg"
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
-		;;
-            25)
-			#set default Controller config
-		echo "set default Controller config"
-		rm "$configdir/all/emulationstation/es_input.cfg"
-		printMsgs "dialog" "Controller config set to default .\n\nRestart System to apply."
 		;;
             30)
 			#Armbian-OS Update
