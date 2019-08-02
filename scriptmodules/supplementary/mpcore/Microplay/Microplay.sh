@@ -1,3 +1,3 @@
 #!/bin/bash
-pushd ~/RetroPie/retropiemenu/Microplay/
+pushd ~/Microplay/
 sudo ./home/pi/RetroPie-Setup/scriptmodules/supplementary/microplay.sh
