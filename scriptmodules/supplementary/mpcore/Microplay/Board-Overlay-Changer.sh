@@ -25,8 +25,7 @@ menufunc() {
 	100 "Exit"
 	)
 
-#	boychoices=$("${boycmd[@]}" "${boyoptions[@]}" 2>&1 >/dev/tty)
-	boychoices=$("${boycmd[@]}" "${boyoptions[@]}")
+	boychoices=$("${boycmd[@]}" "${boyoptions[@]}" 2>&1 >/dev/tty)
 
 for boychoice in $boychoices
 do
