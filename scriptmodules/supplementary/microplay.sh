@@ -25,14 +25,17 @@ function gui_microplay() {
         local options=(
             10 "mpcore-nxt base installer"		
             11 "mpcore-nxt base updater"
-            20 "set default Background-Music"
-            21 "ES-Systems show full list"
-            22 "ES-Systems show default list"
+            20 "Enable Background-Music"
+            21 "Disable Background-Music"
+            22 "set default Background-Music"
+            23 "ES-Systems show full list"
+            24 "ES-Systems show default list"
             30 "Armbian-OS Update"
             31 "Armbian-OS Setup"
             40 "Autostart boot to Desktop"
             41 "Autostart boot to Kodi"
             42 "Autostart boot to ES (default)"
+            99 "Reboot System"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -42,7 +45,7 @@ function gui_microplay() {
             10)
 			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
-		echo "v1.53"
+		echo "v1.54"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -159,7 +162,7 @@ function gui_microplay() {
             11)
 			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
-		echo "v1.53"
+		echo "v1.54"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -226,6 +229,18 @@ function gui_microplay() {
 		printMsgs "dialog" "mpcore-nxt base updated\n\nRestart System to apply."
 		;;
             20)
+			#Enable BGM
+		echo "Enable Background-Music"
+
+		printMsgs "dialog" "Background-Music enabled\n\nRestart System to apply."
+		;;
+            21)
+			#Disable BGM
+		echo "Disable Background-Music"
+
+		printMsgs "dialog" "Background-Music disabled\n\nRestart System to apply."
+		;;
+            22)
 			#set BGM to default
 		echo "set BGM to default"
 		rm -r /home/pi/RetroPie/music/*
@@ -234,7 +249,7 @@ function gui_microplay() {
 		chmod 755 /home/pi/RetroPie/music/*
 		printMsgs "dialog" "Background-Music set to default-set\n\nRestart System to apply."
 		;;
-            21)
+            23)
 			#install es_systems full list
 		echo "install es_systems full list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -242,7 +257,7 @@ function gui_microplay() {
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
 		;;
-            22)
+            24)
 			#install es_systems default list
 		echo "install es_systems default list"
 		mv -f "/etc/emulationstation/es_systems.cfg" "/etc/emulationstation/es_systems.bkup"
@@ -288,6 +303,11 @@ function gui_microplay() {
 		cp -v /home/pi/RetroPie-Setup/scriptmodules/supplementary/mpcore/Autostart/autostart_emustation.SH /opt/retropie/configs/all/autostart.sh
 		chmod 755 "/opt/retropie/configs/all/autostart.sh"
 		printMsgs "dialog" "Now system will boot to EmulationStation by default."
+		;;
+            99)
+			#Reboot System
+		echo "...Rebooting System"
+		/usr/bin/sudo /sbin/reboot
 		;;
         esac
     done
