@@ -45,7 +45,7 @@ function gui_microplay() {
             10)
 			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
-		echo "v1.54"
+		echo "v1.55"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -162,7 +162,7 @@ function gui_microplay() {
             11)
 			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
-		echo "v1.54"
+		echo "v1.55"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -231,18 +231,23 @@ function gui_microplay() {
             20)
 			#Enable BGM
 		echo "Enable Background-Music"
-
+		rm /home/pi/RetroPie/retropiemenu/Microplay/BGM/DisableMusic 2> /dev/null
+		sudo sed -i -e 's/touch/python/g' /opt/retropie/configs/all/autostart.sh 2> /dev/null
+		python /home/pi/RetroPie/retropiemenu/Microplay/BGM/bgmusic.py &
 		printMsgs "dialog" "Background-Music enabled\n\nRestart System to apply."
 		;;
             21)
 			#Disable BGM
 		echo "Disable Background-Music"
-
+		sudo pkill -f bgmusic.py
+		touch /home/pi/RetroPie/retropiemenu/Microplay/BGM/DisableMusic
+		sudo sed -i -e 's/python/touch/g' /opt/retropie/configs/all/autostart.sh 2> /dev/null
 		printMsgs "dialog" "Background-Music disabled\n\nRestart System to apply."
 		;;
             22)
 			#set BGM to default
 		echo "set BGM to default"
+		sudo pkill -f bgmusic.py
 		rm -r /home/pi/RetroPie/music/*
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/music/." "/home/pi/RetroPie/music"
 		chown -cR pi:pi "/home/pi/RetroPie/music"
