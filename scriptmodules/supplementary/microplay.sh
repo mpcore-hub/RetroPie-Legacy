@@ -218,6 +218,12 @@ function gui_microplay() {
 		echo "update kodi configs"
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/cfg_retroarch/configs/ports/." "/opt/retropie/configs/ports"
 			#change access
+		echo "Update folders"			
+		rm -rf "/home/pi/RetrOrangePi"
+		rm -rf "/home/pi/RetroPie/retropiemenu/Microplay/Board-Overlays"
+		rm -rf "/home/pi/RetroPie/retropiemenu/Microplay/Bezelproject"
+		rm -rf "/home/pi/RetroPie/retropiemenu/Microplay/Reicast-Bugfix"
+		rm -rf "/home/pi/RetroPie/retropiemenu/Microplay/Resolution"
 		echo "change access"
 		chown -cR pi:pi "/home/pi/Desktop"
 		chown -cR pi:pi "/etc/emulationstation"
