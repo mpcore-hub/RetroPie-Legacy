@@ -30,6 +30,7 @@ function gui_microplay() {
             22 "set default Background-Music"
             23 "ES-Systems show full list"
             24 "ES-Systems show default list"
+            25 "set default Controller config"
             30 "Armbian-OS Update"
             31 "Armbian-OS Setup"
             40 "Autostart boot to Desktop"
@@ -45,7 +46,7 @@ function gui_microplay() {
             10)
 			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
-		echo "v1.55"
+		echo "v1.56"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -162,7 +163,7 @@ function gui_microplay() {
             11)
 			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
-		echo "v1.55"
+		echo "v1.56"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -269,6 +270,12 @@ function gui_microplay() {
 		cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/es_systems/es_systems.cfg" "/etc/emulationstation/es_systems.cfg"
 		chmod 755 "/etc/emulationstation/es_systems.cfg"
 		printMsgs "dialog" "ES-Systems list updated\n\nRestart Emulationstation to apply."
+		;;
+            25)
+			#set default Controller config
+		echo "set default Controller config"
+		rm "$configdir/all/emulationstation/es_input.cfg"
+		printMsgs "dialog" "Controller config set to default .\n\nRestart System to apply."
 		;;
             30)
 			#Armbian-OS Update
