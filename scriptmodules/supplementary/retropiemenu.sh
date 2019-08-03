@@ -44,10 +44,12 @@ function configure_retropiemenu()
     # add the gameslist / icons
     local files=(
         'audiosettings'
+        'bezelproject'
         'bluetooth'
         'configedit'
         'esthemes'
         'filemanager'
+        'microplay'
         'retroarch'
         'retronetplay'
         'rpsetup'
@@ -59,10 +61,12 @@ function configure_retropiemenu()
 
     local names=(
         'Audio'
+        'Bezelproject'
         'Bluetooth'
         'Configuration Editor'
         'ES Themes'
         'File Manager'
+        'Microplay'
         'Retroarch'
         'RetroArch Net Play'
         'RetroPie Setup'
