@@ -61,7 +61,7 @@
 	</game>
 	<game>
 		<path>./Microplay/OrangePi Wifi.sh</path>
-		<name>OrangePi Wifi</name>
+		<name>OnBoard Wifi</name>
 		<desc>NMTUI launcher - requires keyboard. </desc>
 		<image>./icons/wifi.png</image>
 	</game>
