@@ -91,6 +91,11 @@
 		<image>./icons/esthemes.png</image>
 	</game>
 	<game>
+		<path>./hurstythemes.rp</path>
+		<name>Hursty Themes</name>
+		<image>./icons/hurstythemes.png</image>
+	</game>
+	<game>
 		<path>./microplay.rp</path>
 		<name>Microplay CoreBase Tool</name>
 		<image>./icons/Microplay.png</image>
