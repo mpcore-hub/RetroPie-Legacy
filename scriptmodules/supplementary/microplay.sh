@@ -46,7 +46,7 @@ function gui_microplay() {
             10)
 			#mpcore-nxt base installer
 		echo "install & update mpcore-nxt base"
-		echo "v1.56"
+		echo "v1.58"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the installation"
@@ -59,6 +59,9 @@ function gui_microplay() {
 		rm -rf "/home/pi/RetroPie/retropiemenu/RetrOrangePi"
 		rm -rf "/etc/splash-full.png"
 		rm -rf "/etc/splash-slim.png"
+			#install retropiemenu
+		echo "install retropiemenu"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu" "$datadir/retropiemenu"
 			#install retropiemenu iconset
 		echo "install retropiemenu iconset"
                 cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
@@ -163,7 +166,7 @@ function gui_microplay() {
             11)
 			#mpcore-nxt base updater
 		echo "update mpcore-nxt base"
-		echo "v1.56"
+		echo "v1.58"
 		echo "#################################"
 		echo "*check the packages"
 		echo "*starting the update"
@@ -172,6 +175,9 @@ function gui_microplay() {
 			#remove old files for upgrade
 		echo "remove old files for upgrade"
 		rm -rf "$datadir/retropiemenu/icons"
+			#install retropiemenu
+		echo "install retropiemenu"
+                cp -rf "$scriptdir/scriptmodules/supplementary/mpcore/retropiemenu" "$datadir/retropiemenu"
 			#update retropiemenu iconset
 		echo "update retropiemenu iconset"
 		cp -rf "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_nes" "$datadir/retropiemenu/icons"
