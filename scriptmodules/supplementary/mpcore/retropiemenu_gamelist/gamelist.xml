@@ -45,13 +45,13 @@
 		<path>./Microplay/BGM/Enable_music.sh</path>
 		<name>Enable BG music</name>
 		<desc>Turn on background music. Copy your tunes to ~/RetroPie/music folder. </desc>
-		<image>./icons/MP/bgm_on.png</image>
+		<image>./icons/MP/bgm.png</image>
 	</game>
 	<game>
 		<path>./Microplay/BGM/Disable_music.sh</path>
 		<name>Disable BG music</name>
 		<desc>Turn off background music permanently. </desc>
-		<image>./icons/MP/bgm_off.png</image>
+		<image>./icons/MP/bgm.png</image>
 	</game>
 	<game>
 		<path>./Microplay/BashTool_RCA/Tool/run.sh</path>
@@ -63,7 +63,7 @@
 		<path>./Microplay/OrangePi Wifi.sh</path>
 		<name>OrangePi Wifi</name>
 		<desc>NMTUI launcher - requires keyboard. </desc>
-		<image>./icons/MP/opiwifi.png</image>
+		<image>./icons/wifi.png</image>
 	</game>
 	<game>
 		<path>./filemanager.rp</path>
