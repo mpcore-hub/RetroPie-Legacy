@@ -87,12 +87,12 @@
 	</game>
 	<game>
 		<path>./esthemes.rp</path>
-		<name>ES Themes</name>
+		<name>ES-Themes</name>
 		<image>./icons/esthemes.png</image>
 	</game>
 	<game>
 		<path>./hurstythemes.rp</path>
-		<name>Hursty Themes</name>
+		<name>Hursty-Themes</name>
 		<image>./icons/hurstythemes.png</image>
 	</game>
 	<game>
