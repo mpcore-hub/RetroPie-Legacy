@@ -66,6 +66,12 @@
 		<image>./icons/wifi.png</image>
 	</game>
 	<game>
+		<path>./Desktop-Mode.sh</path>
+		<name>Desktop-Mode</name>
+		<desc>Launch XFCE Unix Desktop</desc>
+		<image>./icons/desktop.png</image>
+	</game>
+	<game>
 		<path>./filemanager.rp</path>
 		<name>File Manager</name>
 		<image>./icons/filemanager.png</image>
