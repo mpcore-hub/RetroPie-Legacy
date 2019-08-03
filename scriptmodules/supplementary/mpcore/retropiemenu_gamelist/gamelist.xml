@@ -22,16 +22,6 @@
 		<image>./icons/Microplay.png</image>
 	</game>
 	<game>
-		<path>./Microplay/Microplay.sh</path>
-		<name>Microplay CoreBase Tool</name>
-		<image>./icons/Microplay.png</image>
-	</game>
-	<game>
-		<path>./Microplay/Bezelproject.sh</path>
-		<name>Bezelproject</name>
-		<image>./icons/MP/bezelproject.png</image>
-	</game>
-	<game>
 		<path>./Microplay/Board-Overlay-Changer.sh</path>
 		<name>Board-Overlay Changer</name>
 		<image>./icons/MP/Board-Overlays.png</image>
@@ -81,6 +71,11 @@
 		<image>./icons/filemanager.png</image>
 	</game>
 	<game>
+		<path>./bezelproject.rp</path>
+		<name>Bezelproject</name>
+		<image>./icons/MP/bezelproject.png</image>
+	</game>
+	<game>
 		<path>./bluetooth.rp</path>
 		<name>Bluetooth</name>
 		<image>./icons/bluetooth.png</image>
@@ -94,6 +89,11 @@
 		<path>./esthemes.rp</path>
 		<name>ES Themes</name>
 		<image>./icons/esthemes.png</image>
+	</game>
+	<game>
+		<path>./microplay.rp</path>
+		<name>Microplay CoreBase Tool</name>
+		<image>./icons/Microplay.png</image>
 	</game>
 	<game>
 		<path>./retroarch.rp</path>
