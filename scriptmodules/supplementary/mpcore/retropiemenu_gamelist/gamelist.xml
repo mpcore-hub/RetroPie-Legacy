@@ -34,7 +34,7 @@
 	<game>
 		<path>./Microplay/Bugfixer.sh</path>
 		<name>Bugfixer Tool</name>
-		<image>./icons/MP/Reicast-Bugfix.png</image>
+		<image>./icons/MP/Bugfixer.png</image>
 	</game>
 	<game>
 		<path>./Microplay/Resolution-Changer.sh</path>
@@ -73,7 +73,7 @@
 	<game>
 		<path>./bezelproject.rp</path>
 		<name>Bezelproject</name>
-		<image>./icons/MP/bezelproject.png</image>
+		<image>./icons/bezelproject.png</image>
 	</game>
 	<game>
 		<path>./bluetooth.rp</path>
@@ -98,7 +98,7 @@
 	<game>
 		<path>./microplay.rp</path>
 		<name>Microplay CoreBase Tool</name>
-		<image>./icons/Microplay.png</image>
+		<image>./icons/mpcore.png</image>
 	</game>
 	<game>
 		<path>./retroarch.rp</path>
