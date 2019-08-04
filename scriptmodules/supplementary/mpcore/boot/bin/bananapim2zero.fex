@@ -351,6 +351,8 @@ fb0_framebuffer_num = 3
 sunxi_fb_mem_reserve = 32
 
 [hdmi_para]
+hdcp_enable = 0
+hdmi_cts_compatibility = 1
 hdmi_used = 1
 hdmi_power = "vcc-hdmi-18"
 
