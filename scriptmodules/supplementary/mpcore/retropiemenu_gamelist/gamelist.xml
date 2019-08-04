@@ -31,6 +31,12 @@
 		<image>./icons/MP/Board-Overlays.png</image>
 	</game>
 	<game>
+		<path>./Microplay/RomCopyTool.sh</path>
+		<name>RomCopyTool</name>
+		<desc>Allows to copy and backup  your Rom-Sets from or to USB</desc>
+		<image>./icons/MP/RomCopyTool.png</image>
+	</game>
+	<game>
 		<path>./Microplay/GPIO/</path>
 		<name>GPIO</name>
 		<desc>Tool-Box to activate GPIO and devices</desc>
