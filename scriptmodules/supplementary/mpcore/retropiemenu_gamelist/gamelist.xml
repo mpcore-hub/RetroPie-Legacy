@@ -3,42 +3,49 @@
 	<game>
 		<path>./Microplay/BGM/</path>
 		<name>Background Music</name>
+		<desc>Allows to set your Background Music</desc>
 		<image>./icons/MP/bgm.png</image>
 	</game>
 	<game>
 		<path>./Microplay/BashTool_RCA/</path>
 		<name>AV Selector</name>
+		<desc>Allows to set Audio and Video Settings</desc>
 		<image>./icons/MP/av_selector.png</image>
 	</game>
 	<game>
 		<path>./Microplay/eMMC/</path>
-		<name>eMMC Install</name>
-		<desc>Install System to eMMC. </desc>
+		<name>eMMC Manager</name>
+		<desc>OnBoardMemory eMMC Tool-Box</desc>
 		<image>./icons/MP/emmc.png</image>
 	</game>
 	<game>
 		<path>./Microplay/</path>
 		<name>Microplay Settings</name>
+		<desc>Allows to set System Improvements and Settings</desc>
 		<image>./icons/Microplay.png</image>
 	</game>
 	<game>
 		<path>./Microplay/Board-Overlay-Changer.sh</path>
 		<name>Board-Overlay Changer</name>
+		<desc>Tool to change SBC Overlays</desc>
 		<image>./icons/MP/Board-Overlays.png</image>
 	</game>
 	<game>
 		<path>./Microplay/GPIO/</path>
 		<name>GPIO</name>
+		<desc>Tool-Box to activate GPIO and devices</desc>
 		<image>./icons/MP/gpio.png</image>
 	</game>
 	<game>
 		<path>./Microplay/Bugfixer.sh</path>
 		<name>Bugfixer Tool</name>
+		<desc>Tool to fix Emulator or Systembugs</desc>
 		<image>./icons/MP/Bugfixer.png</image>
 	</game>
 	<game>
 		<path>./Microplay/Resolution-Changer.sh</path>
 		<name>Resolution Changer</name>
+		<desc>Tool to change easy your Display resolution</desc>
 		<image>./icons/MP/Resolution.png</image>
 	</game>
 	<game>
@@ -62,7 +69,7 @@
 	<game>
 		<path>./Microplay/OrangePi Wifi.sh</path>
 		<name>OnBoard Wifi</name>
-		<desc>NMTUI launcher - requires keyboard. </desc>
+		<desc>nmtui - Manage Wifi Ethernet Connection - Linux TUI (requires keyboard) </desc>
 		<image>./icons/wifi.png</image>
 	</game>
 	<game>
@@ -74,76 +81,91 @@
 	<game>
 		<path>./filemanager.rp</path>
 		<name>File Manager</name>
+		<desc>Support to Manage your Files</desc>
 		<image>./icons/filemanager.png</image>
 	</game>
 	<game>
 		<path>./bezelproject.rp</path>
 		<name>Bezelproject</name>
+		<desc>This utility will provide a downloader for Retroarach system bezel packs to be used for various systems within RetroPie.</desc>
 		<image>./icons/bezelproject.png</image>
 	</game>
 	<game>
 		<path>./bluetooth.rp</path>
 		<name>Bluetooth</name>
+		<desc>Connection Manager for Bluetooth Devices</desc>
 		<image>./icons/bluetooth.png</image>
 	</game>
 	<game>
 		<path>./configedit.rp</path>
 		<name>Configuration Editor</name>
+		<desc>The configuration editor allows a user to edit the configurations for RetroPie and Retroarch from a gui interface.</desc>
 		<image>./icons/configedit.png</image>
 	</game>
 	<game>
 		<path>./esthemes.rp</path>
 		<name>ES-Themes</name>
+		<desc>Official Emulationstation Themes-Library</desc>
 		<image>./icons/esthemes.png</image>
 	</game>
 	<game>
 		<path>./hurstythemes.rp</path>
 		<name>Hursty-Themes</name>
+		<desc>Hurstys 1000 Emulationstation Themes-Library</desc>
 		<image>./icons/hurstythemes.png</image>
 	</game>
 	<game>
 		<path>./microplay.rp</path>
 		<name>Microplay CoreBase Tool</name>
+		<desc>The CoreBaseTool is a custom Tool to Install/Update or Configure your MP-System</desc>
 		<image>./icons/mpcore.png</image>
 	</game>
 	<game>
 		<path>./retroarch.rp</path>
 		<name>Retroarch</name>
+		<desc>RetroArch is a front-end for emulators, game engines, video games, media players and other applications.</desc>
 		<image>./icons/retroarch.png</image>
 	</game>
 	<game>
 		<path>./retronetplay.rp</path>
 		<name>Retroarch NetPlay</name>
+		<desc>RetroArch NetPlay enables you to play games online</desc>
 		<image>./icons/retronetplay.png</image>
 	</game>
 	<game>
 		<path>./rpsetup.rp</path>
 		<name>RetroPie-Setup</name>
+		<desc>A Setup to Manage, Install, Update your System and Emulators</desc>
 		<image>./icons/rpsetup.png</image>
 	</game>
 	<game>
 		<path>./runcommand.rp</path>
 		<name>Run Command Configuration</name>
+		<desc>Configure Start-Options for Emulation</desc>
 		<image>./icons/runcommand.png</image>
 	</game>
 	<game>
 		<path>./showip.rp</path>
 		<name>Show IP</name>
+		<desc>This helper Shows your IP-Address for FTP or SSH Connection</desc>
 		<image>./icons/showip.png</image>
 	</game>
 	<game>
 		<path>./splashscreen.rp</path>
 		<name>Splash Screens</name>
+		<desc>Allows to change the Boot Screen</desc>
 		<image>./icons/splashscreen.png</image>
 	</game>
 	<game>
 		<path>./log.rp</path>
 		<name>Run Command Log</name>
+		<desc>Shows a Error Log from the Emulator</desc>
 		<image>./icons/log.png</image>
 	</game>
 	<game>
 		<path>./wifi.rp</path>
 		<name>WiFi Settings</name>
+		<desc>Manage Wifi Connection (requires keyboard)</desc>
 		<image>./icons/wifi.png</image>
 	</game>
 </gameList>
