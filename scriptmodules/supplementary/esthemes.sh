@@ -31,7 +31,7 @@ function install_theme_esthemes() {
         repo="RetroPie"
     fi
     if [[ -z "$theme" ]]; then
-        theme="carbon"
+        theme="mpcore2"
         repo="RetroPie"
     fi
     mkdir -p "/etc/emulationstation/themes"
@@ -47,6 +47,7 @@ function uninstall_theme_esthemes() {
 
 function gui_esthemes() {
     local themes=(
+        'mpcore-hub mpcore2'
         'RetroPie carbon'
         'RetroPie carbon-centered'
         'RetroPie carbon-nometa'
