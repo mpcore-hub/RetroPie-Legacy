@@ -1,4 +1,4 @@
-MPCORE-HUB - RetroPie-Setup
+MPCORE-HUB (RetroPie-Setup)
 ========================
 
 
@@ -7,7 +7,7 @@ MPCORE-HUB - RetroPie-Setup
 
 Shell script to setup Allwinner H2+/H3 SBC on Armbian/Debian with many emulators and games, using EmulationStation as the graphical front end. Based on the RetroPie Basic Script see on GitHub (RetroPie) or via website at https://retropie.org.uk
 
-This script is optimized for use on Armbian/Debian with Orange PI Lite/One/PC/PC Plus/Zero, Tritium H2/H3, Banana Pi M2+/Zero SBC
+This script is optimized for use on Armbian/Debian with AlphaCore2 One/Two/Plus, Orange PI Lite/One/PC/PC Plus/Zero, Tritium H2/H3, Banana Pi M2+/Zero SBC
 
 To run the RetroPie Setup Script make sure that your APT repositories are up-to-date and that Git is installed:
 
