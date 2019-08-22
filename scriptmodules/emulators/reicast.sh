@@ -27,8 +27,7 @@ function depends_reicast() {
 
 function sources_reicast() {
 #    gitPullOrClone "$md_build" https://github.com/mpcore-hub/reicast-emulator.git
-    gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git
-#    isPlatform "sun8i" && applyPatch "$md_data/sun8i.patch"
+    gitPullOrClone "$md_build" https://github.com/reicast/reicast-emulator.git master
 #    isPlatform "sun50i" && applyPatch "$md_data/sun50i.patch"
 }
 
