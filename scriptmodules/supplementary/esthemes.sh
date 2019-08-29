@@ -124,6 +124,7 @@ function gui_esthemes() {
         'coinjunkie synthwave'
         'nickearl retrowave'
         'nickearl retrowave_4_3'
+        'pacdude minijawn'
         'Retro-Arena dedsimple'
         'Retro-Arena ghc'
         'Retro-Arena greatest-hits'
