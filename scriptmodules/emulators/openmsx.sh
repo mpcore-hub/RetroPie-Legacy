@@ -27,11 +27,12 @@ function sources_openmsx() {
 }
 
 function build_openmsx() {
-    rpSwap on  1536
+    rpSwap on  2000
     ./configure
     make clean
     make -j2
     rpSwap off
+    md_ret_require="$md_build/derived/openmsx"
 }
 
 function install_openmsx() {
