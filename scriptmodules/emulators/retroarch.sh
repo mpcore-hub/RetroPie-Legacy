@@ -48,7 +48,7 @@ function sources_retroarch() {
 }
 
 function build_retroarch() {
-    local params=(--disable-sdl --enable-sdl2 --disable-oss --disable-al --disable-jack --disable-qt)
+    local params=(--disable-opengl --disable-opengl1 --disable-sdl --disable-sdl2 --disable-oss --disable-al --disable-jack --disable-qt)
     ! isPlatform "x11" && params+=(--disable-x11 --disable-pulse)
     if compareVersions "$__os_debian_ver" lt 9; then
         params+=(--disable-ffmpeg)
