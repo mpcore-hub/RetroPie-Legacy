@@ -32,7 +32,7 @@ function install_theme_esthemes() {
     fi
     if [[ -z "$theme" ]]; then
         theme="mpcore2"
-        repo="RetroPie"
+        repo="mpcore-hub"
     fi
     mkdir -p "/etc/emulationstation/themes"
     gitPullOrClone "/etc/emulationstation/themes/$theme" "https://github.com/$repo/es-theme-$theme.git"
