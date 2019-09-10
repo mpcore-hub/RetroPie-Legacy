@@ -44,8 +44,8 @@ function build_amiberry() {
         amiberry_bin="$__platform-sdl1"
         amiberry_platform="$__platform"
     elif isPlatform "sun8i"; then
-        amiberry_bin="orangepi-pc"
-        amiberry_platform="orangepi-pc"
+        amiberry_bin="sun8i"
+        amiberry_platform="sun8i"
     fi
     
     make clean
@@ -59,7 +59,7 @@ function install_amiberry() {
     if isPlatform "rpi" && ! isPlatform "kms"; then
         amiberry_bin="$__platform-sdl1"
     elif isPlatform "sun8i"; then
-        amiberry_bin="orangepi-pc"
+        amiberry_bin="sun8i"
         
     fi
 
