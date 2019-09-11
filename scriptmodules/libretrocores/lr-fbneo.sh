@@ -61,7 +61,7 @@ function install_lr-fbneo() {
 
 function configure_lr-fbneo() {
     local dir
-    for dir in arcade fbneo neogeo; do
+        for dir in arcade neogeo neocdz fbneo pcengine supergrafx tg16 gamegear mastersystem megadrive sg-1000 coleco msx zxspectrum; do
         mkRomDir "$dir"
         ensureSystemretroconfig "$dir"
     done
