@@ -1,4 +1,4 @@
-  #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # This file is part of The Microplay Project 
 # based on The RetroPie Project
@@ -11,11 +11,11 @@
 # See the LICENSE.md file at the top-level directory of this distribution and
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
-
 rp_module_id="fruitbox"
 rp_module_desc="Fruitbox - A customizable MP3 Retro Jukebox. Read the Package Help for more information."
 rp_module_help="Copy your .mp3 files to '$romdir/jukebox' then launch Fruitbox from EmulationStation.\n\nTo configure a gamepad, launch 'Jukebox Config' in Settings, then 'Enable Gamepad Configuration'."
 rp_module_section="opt"
+rp_module_flags=""
 
 function depends_fruitbox() {
     getDepends libsm-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxpm-dev libvorbis-dev libtheora-dev
