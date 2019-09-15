@@ -14,7 +14,7 @@
 
 rp_module_id="fruitbox"
 rp_module_desc="Fruitbox - A customizable MP3 Retro Jukebox. Read the Package Help for more information."
-rp_module_section="opt"
+rp_module_section="exp"
 rp_module_flags="!aarch64"
 
 function depends_fruitbox() {
