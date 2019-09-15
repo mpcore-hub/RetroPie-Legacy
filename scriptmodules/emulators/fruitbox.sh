@@ -11,10 +11,12 @@
 # See the LICENSE.md file at the top-level directory of this distribution and
 # at https://raw.githubusercontent.com/RetroPie/RetroPie-Setup/master/LICENSE.md
 #
+
 rp_module_id="fruitbox"
 rp_module_desc="Fruitbox - A customizable MP3 Retro Jukebox. Read the Package Help for more information."
+rp_module_help="Copy your .mp3 files to '$romdir/jukebox' then launch Fruitbox from EmulationStation.\n\nTo configure a gamepad, launch 'Jukebox Config' in Settings, then 'Enable Gamepad Configuration'."
 rp_module_section="opt"
-rp_module_flags=""
+rp_module_flags="!aarch64"
 
 function depends_fruitbox() {
     getDepends libsm-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxpm-dev libvorbis-dev libtheora-dev
@@ -56,26 +58,6 @@ function install_fruitbox() {
     cp "$md_build/fruitbox/build/fruitbox" "$md_inst/"
     cp "$md_build/fruitbox/skins.txt" "$md_inst/"
     cp -R "$md_build/fruitbox/skins" "$md_inst/"
-    mkRomDir "jukebox"
-    cat > "$romdir/jukebox/+Start Fruitbox.sh" << _EOF_
-#!/bin/bash
-skin=WallJuke
-if [[ -e "$home/.config/fruitbox" ]]; then
-    rm -rf "$home/.config/fruitbox"
-    /opt/retropie/emulators/fruitbox/fruitbox --config-buttons
-else
-    /opt/retropie/emulators/fruitbox/fruitbox --cfg /opt/retropie/emulators/fruitbox/skins/\$skin/fruitbox.cfg
-fi
-_EOF_
-    chmod a+x "$romdir/jukebox/+Start Fruitbox.sh"
-    chown $user:$user "$romdir/jukebox/+Start Fruitbox.sh"
-    addEmulator 1 "$md_id" "jukebox" "fruitbox %ROM%"
-    addSystem "jukebox"
-    touch "$home/.config/fruitbox"
-}
-
-function install_bin_fruitbox() {
-    downloadAndExtract "$__gitbins_url/fruitbox.tar.gz" "$md_inst" 1
     mkRomDir "jukebox"
     cat > "$romdir/jukebox/+Start Fruitbox.sh" << _EOF_
 #!/bin/bash
