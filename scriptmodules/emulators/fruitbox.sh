@@ -18,9 +18,9 @@ rp_module_help="Copy your .mp3 files to '$romdir/jukebox' then launch Fruitbox f
 rp_module_section="opt"
 rp_module_flags="!aarch64"
 
-function depends_fruitbox() {
-    getDepends libsm-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxpm-dev libvorbis-dev libtheora-dev
-}
+#function depends_fruitbox() {
+#    getDepends libsm-dev libxcursor-dev libxi-dev libxinerama-dev libxrandr-dev libxpm-dev libvorbis-dev libtheora-dev
+#}
 
 function sources_fruitbox() {
     gitPullOrClone "$md_build/allegro5" "https://github.com/dos1/allegro5.git"
