@@ -1,7 +1,7 @@
 MPCORE-HUB (RetroPie-Setup)
 ========================
 
-<img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png" width="320" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/retropiemenu/icons_nes/mpcore.png" width="180" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/tekcommand_png/configs/nes/launching.png" width="320" height="180">
+<img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png" width="320" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/retropiemenu/icons_nes/mpcore.png" width="180" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/tekcommand_png/configs/nes/launching.png" width="310" height="170">
 
 ## General Usage
 
