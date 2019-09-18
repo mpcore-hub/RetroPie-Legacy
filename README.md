@@ -1,7 +1,7 @@
 MPCORE-HUB (RetroPie-Setup)
 ========================
 
-![pic001](https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png){:height="25%" width="25%"}
+<img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png" width="320" height="180">
 
 ## General Usage
 
