@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -17,7 +20,7 @@ rp_module_section="opt"
 rp_module_flags="dispmanx !x86 !mali !kms"
 
 function depends_pcsx-rearmed() {
-    getDepends libsdl1.2-dev libasound2-dev libpng-dev libx11-dev
+    getDepends libsdl1.2-dev libasound2-dev libpng12-dev libx11-dev
 }
 
 function sources_pcsx-rearmed() {
