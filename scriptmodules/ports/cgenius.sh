@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This file is part of The RetroPie Project
+# This file is part of The Microplay Project 
+# based on The RetroPie Project
+#
+# only for sun8i, sun50i (like Allwinner H2+/H3/A64/H5)
 #
 # The RetroPie Project is the legal property of its developers, whose names are
 # too numerous to list here. Please refer to the COPYRIGHT.md file distributed with this source.
@@ -28,7 +31,7 @@ function sources_cgenius() {
 }
 
 function build_cgenius() {
-    cmake -DUSE_SDL2=yes -DCMAKE_INSTALL_PREFIX="$md_inst"
+    cmake -DUSE_SDL2=yes -DCMAKE_INSTALL_PREFIX="$md_inst" -DNOTYPESAVE=on
     make
     md_ret_require="$md_build/src/CGeniusExe"
 }
