@@ -26,8 +26,9 @@ function gui_rpmenu-icons() {
             1 "choose default icon set"
             2 "choose nes style icon set"
             3 "choose snes style icon set"
-            4 "choose gameboy style icon set"
-            5 "choose modern icon set"
+            4 "choose smd-genesis style icon set"
+            5 "choose gameboy style icon set"
+            6 "choose modern icon set"
         )
         local cmd=(dialog --default-item "$default" --backtitle "$__backtitle" --menu "Choose an option" 22 76 16)
         local choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
@@ -54,11 +55,17 @@ function gui_rpmenu-icons() {
                 ;;
             4)
                 rm -rf "$datadir/retropiemenu/icons"
+                cp -r "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_smd" "$datadir/retropiemenu/icons"
+                chown -R $user:$user "$datadir/retropiemenu/icons"
+                printMsgs "dialog" "Settings menu smd-genesis icons installed.\n\nRestart EmulationStation to apply."
+                ;;
+            5)
+                rm -rf "$datadir/retropiemenu/icons"
                 cp -r "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_gb" "$datadir/retropiemenu/icons"
                 chown -R $user:$user "$datadir/retropiemenu/icons"
                 printMsgs "dialog" "Settings menu gameboy icons installed.\n\nRestart EmulationStation to apply."
                 ;;
-            5)
+            6)
                 rm -rf "$datadir/retropiemenu/icons"
                 cp -r "$scriptdir/scriptmodules/supplementary/retropiemenu/icons_modern" "$datadir/retropiemenu/icons"
                 chown -R $user:$user "$datadir/retropiemenu/icons"
