@@ -280,11 +280,11 @@ function get_platform() {
              sun8i)
                 __platform="sun8i"
                 ;;
-            "Allwinner sun50i Family")
-                __platform="sun50i"
+            "Allwinner sun7i (A20) Family")
+                __platform="A20-mali"
                 ;;
-             sun50i)
-                __platform="sun50i"
+            sun50iw1p1)
+                __platform="H5-A64-mali"
                 ;;
             *)
                 case $architecture in
@@ -377,12 +377,19 @@ function platform_sun8i() {
     __platform_flags="arm armv7 neon mali sun8i gles"
 }
 
-function platform_sun50i() {
-    __default_cflags="-O2 -march=armv8-a+crc -mtune=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ftree-vectorize -funsafe-math-optimizations"
+function platform_H5-A64-mali() {
+    __default_cflags="-O2 -march=armv7-a -mfpu=neon-vfpv4 -mfloat-abi=hard -ftree-vectorize -funsafe-math-optimizations"
     __default_asflags=""
-    __default_makeflags="-j$(nproc)"
+    __default_makeflags="-j4"
     __has_binaries=0
-    __platform_flags="arm armv8 neon mali sun50i gles"
+    __platform_flags="arm armv7 neon kms gles"
+}
+function platform_A20-mali() {
+    __default_cflags="-O2 -march=armv7-a -mtune=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -ffast-math -Ofast"
+    __default_asflags=""
+    __default_makeflags="-j2"
+    __has_binaries=0
+    __platform_flags="arm armv7 neon kms gles"
 }
 
 function platform_vero4k() {
