@@ -44,9 +44,9 @@ function install_openmsx() {
 function configure_openmsx() {
     mkRomDir "msx"
     mkRomDir "msx2"
-	mkRomDir "msx2p"
-	mkRomDir "msxtr"
-	mkRomDir "spectravideo"
+    mkRomDir "msx2p"
+    mkRomDir "msxtr"
+    mkRomDir "spectravideo"
     mkRomDir "coleco"
     
     # copy basic QJOYPAD layout - enable gamepad support
@@ -54,17 +54,18 @@ function configure_openmsx() {
 
     # copy run script with needed parameters + Qjoypad support
     cp -p $md_data/openmsx.sh $md_conf_root/msx/
+    addEmulator 1 "$md_id-x11" "msx" "startx $md_conf_root/msx/openmsx.sh %ROM%"
     addEmulator 0 "$md_id" "msx" "$md_inst/bin/openmsx %ROM%"
     addSystem "msx"
-    addEmulator 0 "$md_id" "msx2" "$md_inst/bin/openmsx %ROM%"
+    addEmulator 0 "$md_id-x11" "msx2" "startx $md_conf_root/msx/openmsx.sh %ROM%"
     addSystem "msx2"
-	addEmulator 0 "$md_id" "msx2p" "$md_inst/bin/openmsx %ROM%"
+	addEmulator 0 "$md_id-x11" "msx2p" "startx $md_conf_root/msx/openmsx.sh %ROM%"
     addSystem "msx2p"
-	addEmulator 0 "$md_id" "msxtr" "$md_inst/bin/openmsx %ROM%"
+	addEmulator 0 "$md_id-x11" "msxtr" "startx $md_conf_root/msx/openmsx.sh %ROM%"
     addSystem "msxtr"
-	addEmulator 0 "$md_id" "spectravideo" "$md_inst/bin/openmsx %ROM%"
+	addEmulator 0 "$md_id-x11" "spectravideo" "startx $md_conf_root/msx/openmsx.sh %ROM%"
     addSystem "spectravideo"
-    addEmulator 0 "$md_id" "coleco" "$md_inst/bin/openmsx -machine ColecoVision_SGM %ROM%"
+    addEmulator 0 "$md_id-x11" "coleco" "startx $md_conf_root/msx/openmsx.sh -machine ColecoVision_SGM %ROM%"
     addSystem "coleco"
     ln -sfn "$biosdir/COLECO.ROM" "$md_inst/share/systemroms/COLECO.ROM"
 }
