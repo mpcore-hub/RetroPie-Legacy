@@ -46,11 +46,14 @@ function install_lr-bluemsx() {
 }
 
 function configure_lr-bluemsx() {
-    mkRomDir "msx"
-    ensureSystemretroconfig "msx"
+    local system
+    for system in msx msx2 msx2p msxtr spectravideo coleco; do
+        mkRomDir "$system"
+        ensureSystemretroconfig "$system"
+        addEmulator 1 "$md_id" "$system" "$md_inst/bluemsx_libretro.so"
+        addSystem "$system"
+done
 
-    mkRomDir "coleco"
-    ensureSystemretroconfig "coleco"
 
     # force colecovision system
     local core_config="$md_conf_root/coleco/retroarch-core-options.cfg"
@@ -62,9 +65,4 @@ function configure_lr-bluemsx() {
     cp -rv "$md_inst/"{Databases,Machines} "$biosdir/"
     chown -R $user:$user "$biosdir/"{Databases,Machines}
 
-    addEmulator 1 "$md_id" "msx" "$md_inst/bluemsx_libretro.so"
-    addSystem "msx"
-
-    addEmulator 1 "$md_id" "coleco" "$md_inst/bluemsx_libretro.so"
-    addSystem "coleco"
 }
