@@ -112,7 +112,25 @@ function build_ppsspp() {
     # build ppsspp
     cd "$md_build/$md_id"
     rm -rf CMakeCache.txt CMakeFiles
-    local params=(-DCMAKE_TOOLCHAIN_FILE="$md_data/h3.armv7.cmake")
+    local params=()
+    if isPlatform "videocore"; then
+        if isPlatform "armv6"; then
+            params+=(-DCMAKE_TOOLCHAIN_FILE=cmake/Toolchains/raspberry.armv6.cmake)
+        else
+            params+=(-DCMAKE_TOOLCHAIN_FILE=cmake/Toolchains/raspberry.armv7.cmake)
+        fi
+    elif isPlatform "mesa"; then
+        params+=(-DUSING_GLES2=ON -DUSING_EGL=OFF)
+    elif isPlatform "mali"; then
+        params+=(-DCMAKE_TOOLCHAIN_FILE="$md_data/h3.armv7.cmake")
+    fi
+    if isPlatform "arm" && ! isPlatform "x11"; then
+        params+=(-DARM_NO_VULKAN=ON)
+    fi
+    if [ "$md_id" == "lr-ppsspp" ]; then
+        params+=(-DLIBRETRO=On)
+        ppsspp_binary="lib/ppsspp_libretro.so"
+    fi
     "$cmake" "${params[@]}" .
     make clean
     make -j2
