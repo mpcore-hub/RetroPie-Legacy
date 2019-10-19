@@ -1,7 +1,7 @@
 MPCORE-HUB (RetroPie-Setup)
 ========================
 
-<img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png" width="320" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/retropiemenu/icons_nes/mpcore.png" width="180" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Setup/nxt-legacy/scriptmodules/supplementary/mpcore/tekcommand_png/configs/nes/launching.png" width="300" height="160">
+<img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Legacy/legacy/scriptmodules/supplementary/mpcore/splashscreens/mpnxt-splashscreen.png" width="320" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Legacy/legacy/scriptmodules/supplementary/retropiemenu/icons_nes/mpcore.png" width="180" height="180"><img src="https://raw.githubusercontent.com/mpcore-hub/RetroPie-Legacy/legacy/scriptmodules/supplementary/mpcore/tekcommand_png/configs/nes/launching.png" width="300" height="160">
 
 This complet custom RetroPie fork for MPCORE(Microplay-Core) is optimized for use on Armbian/Debian legacy 32Bit with Microplay AlphaCore2 One/Two/Plus SBC or the most Allwinner sun7i, sun8i, sun50i SBCs like Orange PIs, Banana PIs, Tritium H3
 
