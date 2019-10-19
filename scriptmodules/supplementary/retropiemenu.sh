@@ -80,16 +80,19 @@ function configure_retropiemenu()
 
     local descs=(
         'Configure audio settings. Choose default of auto, 3.5mm jack, or HDMI. Mixer controls, and apply default settings.'
+        'Downloader for Bezel-Packs to be used for various systems'
         'Register and connect to bluetooth devices. Unregister and remove devices, and display registered and connected devices.'
         'Change common RetroArch options, and manually edit RetroArch configs, global configs, and non-RetroArch configs.'
         'Install, uninstall, or update EmulationStation themes. Most themes can be previewed at https://github.com/retropie/ RetroPie-Setup/wiki/themes.'
         'Basic ascii file manager for linux allowing you to browse, copy, delete, and move files.'
+        'Hurstys 1000 RetroPie Emulation Station Themes Downloader and Randomizer'
+	'Core-Base-Tool to update your console and system.'
         'Launches the RetroArch GUI so you can change RetroArch options. Note: Changes will not be saved unless you have enabled the "Save Configuration On Exit" option.'
         'Set up RetroArch Netplay options, choose host or client, port, host IP, delay frames, and your nickname.'
         'Install RetroPie from binary or source, install experimental packages, additional drivers, edit samba shares, custom scraper, as well as other RetroPie-related configurations.'
         'Change what appears on the runcommand screen. Enable or disable the menu, enable or disable box art, and change CPU configuration.'
         'Displays your current IP address, as well as other information provided by the command, "ip addr show."'
-        'Enable or disable the splashscreen on RetrOrangePi boot. Choose a splashscreen, download new splashscreens, and return splashscreen to default.'
+        'Enable or disable the splashscreen on boot. Choose a splashscreen, download new splashscreens, and return splashscreen to default.'
         'Connect to or disconnect from a wifi network and configure wifi settings.'
 	'Displays runcommand.log output, useful for checking errors with your roms.'
     )
